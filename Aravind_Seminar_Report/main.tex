@@ -1,0 +1,1068 @@
+%=========================================================
+% SEMINAR REPORT
+% GENERATIVE AGENTS IN AGENT-BASED MODELING:
+% OVERVIEW, VALIDATION, AND EMERGING CHALLENGES
+%=========================================================
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%=========================================================
+% PACKAGES
+%=========================================================
+
+\usepackage[a4paper,
+            top=1in,
+            bottom=1in,
+            left=1.3in,
+            right=1in]{geometry}
+
+% PDFLaTeX-compatible Times-style font
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\usepackage{graphicx}
+\graphicspath{{./}{./figures/}}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{colortbl}
+
+%=========================================================
+% HYPERLINK SETTINGS
+%=========================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue,
+    pdftitle={GENERATIVE AGENTS IN AGENT-BASED MODELING: OVERVIEW, VALIDATION, AND EMERGING CHALLENGES},
+    pdfauthor={Aravind A Kamath}
+}
+
+%=========================================================
+% GENERAL FORMATTING
+%=========================================================
+
+\onehalfspacing
+\fontsize{12}{18}\selectfont
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+%=========================================================
+% CHAPTER AND HEADING NUMBERING (ROMAN AS IN BASE PAPER)
+%=========================================================
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+%=========================================================
+% CHAPTER FORMATTING
+%=========================================================
+
+\titleformat{\chapter}[display]
+    {\normalfont\fontsize{16}{19}\selectfont\bfseries\centering}
+    {\chaptertitlename\ \thechapter}
+    {14pt}
+    {\fontsize{16}{19}\selectfont\centering}
+
+\titlespacing*{\chapter}
+    {0pt}
+    {-8pt}
+    {14pt}
+
+%=========================================================
+% SECTION FORMATTING
+%=========================================================
+
+\titleformat{\section}
+    {\normalfont\fontsize{14}{17}\selectfont\bfseries}
+    {\thesection}
+    {0.5em}
+    {}
+
+\titleformat{\subsection}
+    {\normalfont\fontsize{14}{17}\selectfont\bfseries}
+    {\thesubsection}
+    {0.5em}
+    {}
+
+%=========================================================
+% TABLE OF CONTENTS FORMATTING
+%=========================================================
+
+\setlength{\cftbeforechapskip}{10pt}
+\setlength{\cftbeforesecskip}{4pt}
+\setlength{\cftchapnumwidth}{2.8em}
+\setlength{\cftsecnumwidth}{3.2em}
+\setlength{\cftsubsecnumwidth}{3.8em}
+
+\renewcommand{\cftchapfont}{\fontsize{12}{14}\selectfont\bfseries}
+\renewcommand{\cftsecfont}{\fontsize{12}{14}\selectfont}
+
+\renewcommand{\cftchappagefont}{\fontsize{12}{14}\selectfont\bfseries}
+\renewcommand{\cftsecpagefont}{\fontsize{12}{14}\selectfont}
+
+\renewcommand{\cfttoctitlefont}
+    {\hfill\fontsize{14}{17}\selectfont\bfseries}
+
+\renewcommand{\cftaftertoctitle}
+    {\hfill}
+
+%=========================================================
+% HEADER AND FOOTER
+%=========================================================
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\fancyhead[L]{
+    \footnotesize College of Engineering, Cherthala
+}
+
+\fancyhead[R]{
+    \footnotesize\leftmark
+}
+
+\fancyfoot[L]{
+    \small Department of Computer Science and Engineering
+}
+
+\fancyfoot[R]{
+    \small\thepage
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\renewcommand{\chaptermark}[1]{
+    \markboth{#1}{}
+}
+
+%=========================================================
+% PLAIN PAGE STYLE
+%=========================================================
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+
+    \fancyfoot[L]{
+        \small Department of Computer Science and Engineering
+    }
+
+    \fancyfoot[R]{
+        \small\thepage
+    }
+
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+%=========================================================
+% FIGURE AND TABLE CAPTION FORMAT
+%=========================================================
+
+\captionsetup[figure]{
+    font=normalsize,
+    labelfont=normalfont,
+    justification=centering,
+    singlelinecheck=true
+}
+
+\captionsetup[table]{
+    font=normalsize,
+    labelfont=bf,
+    justification=centering,
+    singlelinecheck=true
+}
+
+%=========================================================
+% DOCUMENT METADATA
+%=========================================================
+
+\newcommand{\reporttitle}{GENERATIVE AGENTS IN AGENT-BASED MODELING: OVERVIEW, VALIDATION, AND EMERGING CHALLENGES}
+\newcommand{\studentname}{ARAVIND A KAMATH}
+\newcommand{\rollno}{CEC23CS041}
+\newcommand{\guidename}{Mrs. JAYASREE K}
+\newcommand{\seminarmonth}{SEPTEMBER 2026}
+\newcommand{\coordinator}{Mrs. Deepa C G}
+\newcommand{\hodname}{Dr. Preetha Theresa Joy}
+\newcommand{\principalname}{Dr. Jaya V L}
+
+%=========================================================
+% DOCUMENT BEGIN
+%=========================================================
+
+\begin{document}
+
+%=========================================================
+% COVER PAGE
+%=========================================================
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+
+\vspace*{0.3cm}
+
+{\Large\bfseries A SEMINAR REPORT ON}\par
+
+\vspace{0.5cm}
+
+{\fontsize{17}{21}\selectfont\bfseries
+GENERATIVE AGENTS IN AGENT-BASED MODELING:\\
+OVERVIEW, VALIDATION, AND EMERGING CHALLENGES}\par
+
+\vfill
+
+{\large\itshape Submitted By}\par
+\vspace{0.2cm}
+{\large\bfseries\itshape \studentname\ (\rollno)}\par
+
+\vfill
+
+{\large\itshape under the esteemed guidance of}\par
+\vspace{0.2cm}
+{\large\bfseries\itshape \guidename}\par
+\vspace{0.1cm}
+{\large\itshape (Assistant Professor)}\par
+\vspace{0.15cm}
+{\large\itshape Department of Computer Science and Engineering}\par
+
+\vfill
+
+\includegraphics[width=3.2cm]{logo.jpg}\par
+
+\vfill
+
+{\large\bfseries \seminarmonth}\par
+\vspace{0.05cm}
+{\large\bfseries DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\par
+{\large\bfseries COLLEGE OF ENGINEERING, PALLIPPURAM P O, CHERTHALA,}\par
+{\large\bfseries ALAPPUZHA PIN: 688541,}\par
+{\large\bfseries PHONE: 0478 2553416, FAX: 0478 2552714}\par
+{\large\bfseries http://www.cectl.ac.in}\par
+
+\vspace*{0.3cm}
+\end{center}
+\end{titlepage}
+
+%=========================================================
+% SECOND TITLE PAGE
+%=========================================================
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+
+\vspace*{0.2cm}
+
+{\Large\bfseries A SEMINAR REPORT ON}\par
+
+\vspace{0.45cm}
+
+{\fontsize{16}{20}\selectfont\bfseries
+GENERATIVE AGENTS IN AGENT-BASED MODELING:\\
+OVERVIEW, VALIDATION, AND EMERGING CHALLENGES}\par
+
+\vspace{0.55cm}
+
+{\large\itshape Submitted By}\par
+\vspace{0.2cm}
+{\large\bfseries\itshape \studentname\ (\rollno)}\par
+
+\vspace{0.4cm}
+
+{\large\itshape under the esteemed guidance of}\par
+\vspace{0.2cm}
+{\large\bfseries\itshape \guidename}\par
+\vspace{0.1cm}
+{\large\itshape (Assistant Professor)}\par
+
+\vspace{0.4cm}
+
+{\large\itshape In partial fulfillment of the requirements for the award of the degree}\par
+{\large\itshape of}\par
+{\large\bfseries Bachelor of Technology}\par
+{\large\itshape in}\par
+{\large\bfseries Computer Science and Engineering}\par
+{\large\itshape of}\par
+{\large\bfseries APJ Abdul Kalam Technological University}\par
+
+\vfill
+
+\includegraphics[width=3.2cm]{logo.jpg}\par
+
+\vfill
+
+{\large\bfseries \seminarmonth}\par
+\vspace{0.05cm}
+{\large\bfseries DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\par
+{\large\bfseries COLLEGE OF ENGINEERING, PALLIPPURAM P O, CHERTHALA,}\par
+{\large\bfseries ALAPPUZHA PIN: 688541,}\par
+{\large\bfseries PHONE: 0478 2553416, FAX: 0478 2552714}\par
+{\large\bfseries http://www.cectl.ac.in}\par
+
+\vspace*{0.2cm}
+\end{center}
+\end{titlepage}
+
+%=========================================================
+% CERTIFICATE
+%=========================================================
+
+\thispagestyle{empty}
+\begin{center}
+{\large\bfseries DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\par
+{\large\bfseries COLLEGE OF ENGINEERING CHERTHALA}\par
+{\large\bfseries ALAPPUZHA-688541}\par
+\vspace{0.3cm}
+\includegraphics[width=2.8cm]{logo.jpg}\par
+\vspace{0.3cm}
+{\Large\bfseries C E R T I F I C A T E}\par
+\end{center}
+
+\vspace{0.5cm}
+\noindent
+This is to certify that, the seminar report titled \textbf{\textit{\reporttitle}} is a bonafide record of the \textbf{CSQ413 SEMINAR} presented by \textbf{\studentname\ (\rollno)}, Seventh Semester B.Tech. Computer Science \& Engineering student, under our guidance and supervision, in partial fulfillment of the requirements for the award of the degree B.Tech. Computer Science \& Engineering of APJ Abdul Kalam Technological University.
+
+\vspace{1.2cm}
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{0.45cm}}c@{\hspace{0.45cm}}c@{}}
+\textbf{Guide} & \textbf{Co-ordinator} & \textbf{HoD}\\[0.75cm]
+
+\parbox[c][0.55cm][c]{4.3cm}{\centering \guidename} &
+\parbox[c][0.55cm][c]{4.3cm}{\centering \coordinator} &
+\parbox[c][0.55cm][c]{4.3cm}{\centering \hodname}\\[0.25cm]
+
+\parbox[c][0.45cm][c]{4.3cm}{\centering Assistant Professor} &
+\parbox[c][0.45cm][c]{4.3cm}{\centering Assistant Professor} &
+\parbox[c][0.45cm][c]{4.3cm}{\centering Professor}\\[0.25cm]
+
+\parbox[c][1.35cm][c]{4.3cm}{\centering \small Dept. of Computer Science\\ and Engineering} &
+\parbox[c][1.35cm][c]{4.3cm}{\centering \small Dept. of Computer Science\\ and Engineering} &
+\parbox[c][1.35cm][c]{4.3cm}{\centering \small Dept. of Computer Science\\ and Engineering}
+
+\end{tabular}
+\end{center}
+
+\newpage
+
+%=========================================================
+% ACKNOWLEDGEMENT
+%=========================================================
+
+\chapter*{ACKNOWLEDGEMENT}
+This seminar work would not have been possible without the guidance and support of many individuals. First and foremost, I express my gratitude to Almighty God for providing the perseverance and strength to complete this seminar successfully.
+
+I express my sincere thanks to our Principal, \textbf{\principalname}, for providing institutional facilities and a conducive academic environment.
+
+I am deeply grateful to our Head of Department, \textbf{\hodname}, for her encouragement and support throughout this work.
+
+I extend my appreciation to my seminar coordinators, \textbf{\coordinator}, \textbf{Mrs.~Seethamol~S} and \textbf{Mrs.~Vidya~S~Mony}, Assistant Professors, Department of Computer Science and Engineering, for their coordination and constructive feedback.
+
+I express my deepest gratitude to my guide, \textbf{\guidename}, Assistant Professor, Department of Computer Science and Engineering, for her continuous mentoring, valuable insights and guidance at every stage of this seminar.
+
+Finally, I thank my friends and classmates for their encouragement and support during this work.
+
+\newpage
+
+%=========================================================
+% ABSTRACT (STRICTLY 1 PAGE)
+%=========================================================
+
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Agent-Based Modeling (ABM) is an established bottom-up computational paradigm for analyzing complex adaptive systems across epidemiology, economics and urban planning. Classical ABMs rely primarily on hand-coded heuristics or reinforcement learning policies governed by neoclassical assumptions of perfect economic rationality (\textit{homo economicus}). Consequently, traditional models struggle to capture cognitive heterogeneity, bounded rationality, psychological nuance and natural language communication. The emergence of Large Language Models (LLMs) and Generative Artificial Intelligence has enabled a transformative paradigm shift through the development of Generative Agents (GAs) and Generative Agent-Based Models (GABMs). By embedding LLMs within the decision loop of simulation entities, GABMs enable virtual individuals capable of natural language interaction, episodic memory retention, reflection and recursive planning.
+
+This seminar report presents an in-depth investigation of the survey paper titled `Generative Agents in Agent-Based Modeling: Overview, Validation, and Emerging Challenges'' published by Adornetto et al.~in \textit{IEEE Transactions on Artificial Intelligence} (December 2025). The report clarifies the distinction between Joshua Epstein's classic generative social science paradigm and modern LLM-driven generative simulations. It details the core cognitive modules of generative agents, including the memory stream retrieval formula balancing recency, importance and relevance, hierarchical reflection trees and recursive planning mechanisms. Prominent implementations such as Smallville, Concordia, SOTOPIA, S3 and the CRSEC normative pipeline are systematically examined. Crucially, the report investigates the fundamental validation dilemma posed by transitioning from transparent white-box models to opaque, probabilistic black-box LLMs, formalizing an integrated validation blueprint combining empirical data analytics, face validation and automated LLM-as-a-Judge protocols. Finally, critical emerging challenges including hallucinations and computational complexity are analyzed, culminating in the proposed hybrid ABM-GABM architecture that couples deterministic physics engines with high-level cognitive language models to achieve both computational scalability and behavioral authenticity.
+
+\clearpage
+
+%=========================================================
+% TABLE OF CONTENTS
+%=========================================================
+
+\pagenumbering{roman}
+
+\tableofcontents
+
+\clearpage
+
+%=========================================================
+% LIST OF FIGURES
+%=========================================================
+
+\listoffigures
+
+\clearpage
+
+%=========================================================
+% LIST OF TABLES
+%=========================================================
+
+\listoftables
+
+\clearpage
+
+%=========================================================
+% MAIN CONTENT BEGINS
+%=========================================================
+
+\pagenumbering{arabic}
+
+%=========================================================
+% CHAPTER I: INTRODUCTION
+%=========================================================
+
+\chapter{INTRODUCTION}
+
+\section{Background and Scope of Agent-Based Modeling}
+
+Agent-Based Modeling (ABM) is a computational paradigm designed to simulate the simultaneous actions and interactions of autonomous entities, known as agents, in order to assess their collective effects on the system as a whole~\\cite{bonabeau2002agent,macal2010tutorial}. Unlike classical aggregate top-down models that rely on systems of differential equations, ABMs operate from the bottom up. By explicitly defining individual agents with specific internal states, behavioral heuristics and localized sensory scopes, researchers observe how macro-level systemic phenomena emerge organically from micro-level interactions.
+
+Over several decades, ABMs have become foundational across multiple disciplines~\\cite{axtell2002why}. In epidemiology, ABMs model pathogen transmission through contact networks to evaluate targeted interventions. In computational finance, multi-agent platforms capture market crashes, asset bubbles and liquidity crises. In urban planning, agent simulations evaluate vehicular routing, pedestrian dynamics and infrastructural transit modifications.
+
+\section{Limitations of Classical Behavioral Models}
+
+Despite their utility, traditional ABMs have historically relied on rigid mathematical formulas, discrete state transitions or rule sets built upon neoclassical economic assumptions of perfect rationality (\textit{homo economicus}). These frameworks assume agents possess complete information, consistent preferences and unbounded computational capacity to maximize expected utility. Real-world human decision-making, however, is characterized by bounded rationality, emotional states, heuristics, shifting contexts and interpersonal dialogue.
+
+Classical agent architectures exhibit several critical constraints:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Homogeneity and Coarse Rules:} Due to engineering complexity, agents are frequently modeled as homogeneous populations or grouped into coarse archetypes, neglecting psychological diversity and cultural backgrounds.
+    \item \textbf{Absence of Natural Language:} Communication in traditional simulations is restricted to exchanging discrete numerical values or binary flags. Agents cannot hold open-ended conversations, negotiate compromises or interpret subjective nuances.
+    \item \textbf{Static Memory and Lack of Reflection:} Past interactions are either discarded or reduced to running averages. Agents lack chronological episodic memories and cannot synthesize past experiences into higher-order abstract beliefs.
+    \item \textbf{Inflexible Adaptation:} Rule-based agents cannot dynamically respond to unprecedented environmental events outside their pre-programmed logic, rendering traditional models brittle in open-ended social settings.
+\end{enumerate}
+
+\section{The Rise of Generative AI and Generative Agents}
+
+The emergence of Large Language Models (LLMs) built upon Transformer architectures~\\cite{vaswani2017attention} provides a foundation to overcome these limitations. Pretrained on massive multi-modal and textual corpora, LLMs encapsulate representations of commonsense reasoning, psychological archetypes and linguistic capabilities.
+
+By embedding LLMs within the decision loop of simulation entities, researchers have developed \textbf{Generative Agents (GAs)} and \textbf{Generative Agent-Based Models (GABMs)}~\\cite{adornetto2025generative}. Rather than adhering to hand-crafted if-then rules, generative agents perceive environmental cues, retrieve relevant episodic memories, generate reflections, formulate daily plans and communicate via natural language dialogue. This represents an epistemological transition in computational social science: moving from mathematically bounded entities toward cognitively rich, linguistically interactive human simulacra.
+
+\section{Seminar Objectives and Report Organization}
+
+The objective of this seminar report is to provide a comprehensive technical study of the survey paper by Adornetto et al.~\\cite{adornetto2025generative} published in \textit{IEEE Transactions on Artificial Intelligence} (December 2025). The report investigates the architectural foundations, validation methodologies and open challenges of Generative Agents in ABM.
+
+The report is organized as follows: Chapter II examines ABMs and Generative ABMs; Chapter III reviews Evolving Agents; Chapter IV details Generative Agents; Chapter V outlines the Informal Theory of ABMs Validation; Chapter VI investigates GABMs Validation; Chapter VII provides a Comparison between ABM and GABM; Chapter VIII analyzes Emerging Challenges; Chapter IX discusses urban testbeds and hybrid architectures; and Chapter X concludes the report.
+
+%=========================================================
+% CHAPTER II: ABMS AND GENERATIVE ABMS
+%=========================================================
+
+\chapter{ABMS AND GENERATIVE ABMS}
+
+\section{Definitions and Mathematical Foundations}
+
+An Agent-Based Model is formalized as a computational system consisting of autonomous decision-making entities situated within an environmental space. Formally, a multi-agent system at time $t$ is defined by the tuple:
+\begin{equation}
+\mathcal{S}_t = \langle \mathcal{A}_t, \mathcal{E}_t, \mathcal{I}_t \rangle
+\end{equation}
+where $\mathcal{A}_t = \{a_1, a_2, \dots, a_N\}$ denotes the set of $N$ autonomous agents, $\mathcal{E}_t$ represents the environmental state space, and $\mathcal{I}_t \subseteq \mathcal{A}_t \times \mathcal{A}_t$ specifies the interaction topology connecting agents.
+
+Each agent $a_i$ maintains an internal state $s_{i,t}$, sensory perception functions $P_i: \mathcal{E}_t \to \mathcal{O}_{i,t}$, and a behavioral policy $\pi_i$ determining its action $u_{i,t}$:
+\begin{equation}
+u_{i,t} = \pi_i(s_{i,t}, \mathcal{O}_{i,t})
+\end{equation}
+State transitions evolve dynamically according to:
+\begin{equation}
+s_{i,t+1} = f_s(s_{i,t}, u_{i,t}, \mathcal{O}_{i,t}), \quad \mathcal{E}_{t+1} = f_e(\mathcal{E}_t, u_{1,t}, \dots, u_{N,t})
+\end{equation}
+In traditional ABMs, $\pi_i$ is explicitly defined via mathematical functions or heuristics. Systemic macro-properties emerge from localized micro-actions without being explicitly programmed.
+
+\section{Generative Social Science vs. Generative Artificial Intelligence}
+
+The base research paper resolves the conceptual ambiguity surrounding the term ``generative'' in computational science by distinguishing two historically separated definitions:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Generative Social Science (Epistemological):} Formulated by Joshua Epstein (1999)~\\cite{epstein1999generative} through the motto \textit{``If you didn't grow it, you didn't explain it.''} A social phenomenon is explained if and only if it can be computationally generated by decentralized, locally interacting agents without central coordination. Classic examples include:
+    \begin{itemize}
+        \item \textbf{Schelling's Segregation Model (1971)~\\cite{schelling1971dynamic}:} Mild individual neighbor preferences generate severe macro-level residential segregation.
+        \item \textbf{Reynolds' Boids Model (1987)~\\cite{reynolds1987flocks}:} Coordinated flocking emerges from three local steering rules (Separation, Alignment, Cohesion).
+    \end{itemize}
+    In this context, agent rules are typically simple and rule-based; ``generative'' pertains strictly to the emergence of macro-patterns from micro-components.
+    
+    \item \textbf{Generative Artificial Intelligence (Technological):} Refers to machine learning models (e.g., Transformers, GANs, Diffusion Models) trained on massive corpora to generate novel high-dimensional content mirroring human artifacts.
+\end{enumerate}
+
+In \textbf{Generative Agent-Based Modeling (GABM)}, these paradigms converge: micro-level decision-making is powered by Generative AI, enabling the system to be generative at both the individual cognitive level and the collective macroscopic level.
+
+\section{Comparative Scenario: Urban Traffic Flow Simulation}
+
+To illustrate this distinction, the base paper compares a municipal traffic simulation under both paradigms, summarized in Table~\\ref{tab:table1_traffic}.
+
+\begin{table}[H]
+\centering
+\caption{Comparison between traditional ABM and Generative ABM (Urban Traffic Flow Scenario)}
+\label{tab:table1_traffic}
+\vspace{0.2cm}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{p{2.2cm} p{6.0cm} p{6.8cm}}
+\toprule
+\textbf{Dimension} & \textbf{Traditional ABM} & \textbf{Generative ABM (GABM)} \\
+\midrule
+\textbf{Objective} & Optimizes vehicular throughput, predicts congestion bottlenecks and visually displays flow. Used as an engineering optimization tool without advancing social science theory. & Analyzes how social norms, personal risk attitudes, stress, environmental values and collective behavior shape urban mobility patterns and societal outcomes. \\
+\midrule
+\textbf{Outcomes} & Generates context-specific engineering outputs (e.g., traffic signal timings). Findings do not transfer to other urban contexts or broader social theories. & Generates theoretical insights into the interplay between social behavior and infrastructure. Findings generalize across urban systems and collective action dilemmas. \\
+\midrule
+\textbf{Decision Basis} & Deterministic shortest-path heuristics (Dijkstra, A*) and fixed congestion penalties, ignoring psychological states. & Context-sensitive reasoning accounting for heterogeneous values, dynamic schedules, comfort, ethics and interpersonal dialogue. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%=========================================================
+% CHAPTER III: EVOLVING AGENTS
+%=========================================================
+
+\chapter{EVOLVING AGENTS}
+
+\section{Historical Trajectory of Agent Decision Architectures}
+
+Agent decision architectures have evolved from deterministic Finite State Machines (FSMs) toward adaptive optimization models. While FSMs provide computational efficiency ($\mathcal{O}(1)$ time complexity), expanding state spaces creates combinatorial explosion, making hand-crafted rules unmaintainable in complex environments.
+
+\section{Evolutionary Algorithms in Agent Systems}
+
+To incorporate adaptation, researchers introduced \textbf{Evolutionary Algorithms (EAs)} grounded in Neo-Darwinian mechanics~\\cite{holland1992adaptation}. Agent policies are encoded as chromosomes and optimized through:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Selection:} Allocating reproduction opportunities based on objective fitness.
+    \item \textbf{Crossover:} Merging parameters from high-performing parent policies.
+    \item \textbf{Mutation:} Introducing random parameter perturbations to explore search spaces.
+\end{enumerate}
+
+Advanced variants include \textbf{Cultural Algorithms (CAs)}, which augment populations with a shared \textit{Belief Space} storing normative, spatial and domain knowledge. However, EA models suffer from premature convergence on local optima, sensitivity to hyperparameter tuning and lack of semantic interpretability.
+
+\section{Reinforcement Learning in Multi-Agent Environments}
+
+The integration of \textbf{Reinforcement Learning (RL)}~\\cite{sutton2018reinforcement} frames decision-making as a Markov Decision Process $\langle \mathcal{S}, \mathcal{U}, \mathcal{P}, \mathcal{R}, \gamma \rangle$, where agents maximize expected discounted rewards:
+\begin{equation}
+J(\pi) = \mathbb{E}_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^k \mathcal{R}(s_{t+k}, u_{t+k}) \right]
+\end{equation}
+
+In Multi-Agent Reinforcement Learning (MARL), simultaneous policy updates induce non-stationarity, invalidating single-agent convergence guarantees. Furthermore, RL requires millions of interaction steps (sample inefficiency) and lacks natural language reasoning, restricting its utility for simulating complex social dialogue.
+
+\section{Generative AI Integration in ABM Development}
+
+Generative AI addresses these challenges by contributing to two distinct areas of ABM development: \textbf{Structural Specification} and \textbf{Output Analysis}, illustrated in Figure~\\ref{fig:fig1_ai_in_abm}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth,keepaspectratio]{fig1_ai_in_abm.png}
+    \caption{AI integration across the two distinct areas of ABM development: Structural Specification and Output Analysis (Source: Base Research Paper Figure 1)}
+    \label{fig:fig1_ai_in_abm}
+\end{figure}
+
+\subsection{Structural Specification}
+\begin{itemize}
+    \item \textbf{Population Synthesis:} LLMs synthesize representative populations endowed with realistic demographics, occupational backgrounds and OCEAN Big Five personality profiles based on aggregate census data.
+    \item \textbf{Decision Making via Interactions:} Foundation models act as decentralized cognitive engines. Agents interpret situations and negotiate via open-ended natural language dialogue.
+    \item \textbf{Scenario Generation:} Generative AI synthesizes dynamic environmental shocks, resource crises and policy interventions without manual scripting.
+\end{itemize}
+
+\subsection{Output Analysis}
+\begin{itemize}
+    \item \textbf{Macro-Level Emergence Tracking:} Deep learning models track high-dimensional simulation state logs to detect subtle emergent social patterns and tipping points.
+    \item \textbf{Narrative Summarization and Synthetic Interviewing:} Observers can directly interview individual agents or synthetic communities in natural language regarding the rationale behind their choices.
+\end{itemize}
+
+%=========================================================
+% CHAPTER IV: GENERATIVE AGENTS
+%=========================================================
+
+\chapter{GENERATIVE AGENTS}
+
+\section{Formal Architectural Definition}
+
+A Generative Agent is defined as an autonomous computational entity capable of:
+\begin{enumerate}[label=\arabic*.]
+    \item Perceiving multimodal or natural language sensory streams from its environment;
+    \item Maintaining an evolving chronological memory stream of past experiences;
+    \item Generating reflective higher-order inferences and abstract beliefs;
+    \item Devising and dynamically revising hierarchical plans; and
+    \item Communicating with other agents through fluent natural language dialogue.
+\end{enumerate}
+
+Architecturally, GABMs decouple simulations into a \textbf{Mechanical Environment Layer} (managing spatial coordinates, collision physics and clock time) and a \textbf{Cognitive Layer} (managing LLM-driven reasoning, memory and dialogue).
+
+\section{Parameters and Status Representation}
+
+The base research paper establishes a clear distinction between an agent's static parameters and dynamic status:
+\begin{itemize}
+    \item \textbf{Static Baseline Parameters:} Invariant identity attributes initialized prior to simulation, including demographic data, baseline OCEAN personality traits and static social network graphs. These are persistent prompts anchoring agent identity.
+    \item \textbf{Dynamic Runtime Status:} Fluctuating state variables that evolve during simulation, such as emotional affect, spatial coordinates, active goals and chronological memories. These are maintained externally in structured database records decoupled from the prompt engine.
+\end{itemize}
+
+\section{Decision Architectures: Inferential vs. Conversational Loops}
+
+The cognitive loop operates via two distinct feedback architectures, illustrated in Figure~\\ref{fig:fig2_feedback_loop}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth,keepaspectratio]{fig2_ga_feedback_loop_status.png}
+    \caption{LLM-based feedback loop and status of Generative Agents: (a) Inferential GA feedback loop, and (b) Conversational GA feedback loop (Source: Base Research Paper Figure 2)}
+    \label{fig:fig2_feedback_loop}
+\end{figure}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Inferential Feedback Loop:} As shown in Figure~\\ref{fig:fig2_feedback_loop}(a), the agent ingests its internal status and an environmental event trigger, executes inference, and directly outputs a discrete physical action that updates the simulation environment.
+    \item \textbf{Conversational Feedback Loop:} As shown in Figure~\\ref{fig:fig2_feedback_loop}(b), incoming communicative events trigger an internal status update, prompting the agent to synthesize a natural language response transmitted to neighboring agents.
+\end{enumerate}
+
+\section{Core Cognitive Modules}
+
+State-of-the-art generative agents incorporate three core cognitive modules:
+
+\subsection{Memory Stream and Retrieval Scoring}
+Agents maintain a chronological database recording all perceptions and actions in natural language strings with timestamps. Because LLM context windows are bounded, relevant memories are retrieved at each step using a linear scoring function:
+\begin{equation}
+\text{Score}(m, q) = \alpha \cdot \text{Recency}(m) + \beta \cdot \text{Importance}(m) + \gamma \cdot \text{Relevance}(m, q)
+\end{equation}
+where $\alpha, \beta, \gamma \ge 0$ are non-negative weighting parameters:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Recency:} Decays exponentially based on elapsed simulation time:
+    \begin{equation}
+    \text{Recency}(m) = e^{-\lambda (t_{\text{current}} - t_{\text{last\_access}})}, \quad \lambda > 0
+    \end{equation}
+    \item \textbf{Importance:} Integer rating from 1 (mundane) to 10 (critical), assigned by the LLM upon memory creation to distinguish trivial events from pivotal occurrences.
+    \item \textbf{Relevance:} Cosine similarity between dense embedding vectors of the memory record $\mathbf{e}_m$ and current situational query $\mathbf{e}_q$:
+    \begin{equation}
+    \text{Relevance}(m, q) = \frac{\mathbf{e}_m \cdot \mathbf{e}_q}{\|\mathbf{e}_m\| \|\mathbf{e}_q\|}
+    \end{equation}
+\end{enumerate}
+
+\subsection{Hierarchical Reflection Engine}
+To prevent retrieval from becoming flooded with granular observations, the reflection engine periodically synthesizes raw memories into abstract insights. Triggered when the cumulative importance of recent memories exceeds a threshold, the agent formulates salient high-level questions and synthesizes insights that are stored back in the memory stream, creating a hierarchical reflection tree.
+
+\subsection{Dynamic Planning and Execution}
+Planning operates recursively: agents draft a broad daily agenda, decompose hourly tasks into 5-to-15 minute action sequences, and monitor environmental feedback. If unexpected events occur, execution is interrupted to revise plans dynamically.
+
+\section{Existing GABM Implementations}
+
+Table~\\ref{tab:table2_gabms} summarizes prominent GABM platforms analyzed in the base paper.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of existing GABMs, highlighting scenarios, agent characteristics and validation methods}
+\label{tab:table2_gabms}
+\vspace{0.2cm}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{p{1.2cm} p{1.0cm} p{3.6cm} p{3.8cm} p{4.6cm}}
+\toprule
+\textbf{Ref} & \textbf{Year} & \textbf{Framework \& Scenario} & \textbf{Contribution Highlights} & \textbf{Validation Methodology} \\
+\midrule
+\cite{sotopia2024} & 2024 & \textbf{SOTOPIA:} Goal-driven social interactions (cooperation, competition). & Open-ended multi-agent benchmark with diverse persona profiles. & Human judgments compared against automated LLM evaluations across 7 dimensions. \\
+\midrule
+\cite{socialnorms2024} & 2024 & \textbf{CRSEC Norm Emergence:} Norm emergence in Smallville using 10 GAs. & 4-stage pipeline: Creation, Spreading, Evaluation, Compliance. & Human study with 30 evaluators demonstrating conflict reduction and norm adoption. \\
+\midrule
+\cite{concordia2023} & 2023 & \textbf{Concordia (Google DeepMind):} Grounded physical and social space. & General-purpose framework with Game Master mediating language actions. & No formal validation; provides design recommendations and blueprints. \\
+\midrule
+\cite{park2023generative} & 2023 & \textbf{Smallville Sandbox:} 25 agents in a 2D RPG town forming relationships. & Architecture integrating memory streams, reflections and planning. & 100 human evaluators conducting ablation studies and interview believability scoring. \\
+\midrule
+\cite{s32023} & 2023 & \textbf{S3 Platform:} Social network simulation of information diffusion. & Prompt engineering aligning agent behaviors with empirical human online traces. & Empirical validation against real-world social network traces and sentiment benchmarks. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%=========================================================
+% CHAPTER V: INFORMAL THEORY OF ABMS VALIDATION
+%=========================================================
+
+\chapter{INFORMAL THEORY OF ABMS VALIDATION}
+
+\section{Epistemological Principles of Simulation Validation}
+
+Validation in computational modeling establishes whether a model accurately represents the target system~\\cite{grimm2006standard}. Traditional literature separates:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Verification:} Ensuring internal correctness of code and algorithms (\textit{``Was the model built right?''}).
+    \item \textbf{Validation:} Ensuring model outputs conform to empirical real-world behavior (\textit{``Was the right model built?''}).
+\end{enumerate}
+
+\section{Foundational Validation Methodologies}
+
+Traditional ABM validation relies on four established methods:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Data Analytics:} Statistical comparison of simulated outputs with historical measurements using goodness-of-fit tests, regression residuals and distribution tests.
+    \item \textbf{Model Docking (Alignment):} Comparing two independent simulation implementations calibrated against identical inputs to verify emergent behaviors are genuine systemic features rather than software artifacts.
+    \item \textbf{Empirical Validation:} Initializing simulations with historical conditions ($t_0$) and testing predictive accuracy against observed data up to $t_1$.
+    \item \textbf{Sampling Techniques:} Latin Hypercube Sampling (LHS) and Monte Carlo sweeps to evaluate stability across high-dimensional parameter spaces.
+\end{enumerate}
+
+\section{Advanced Analytical Validation Methods}
+
+Advanced validation frameworks incorporate:
+\begin{itemize}
+    \item \textbf{Bootstrapping:} Non-parametric resampling to establish parameter confidence intervals without restrictive distribution assumptions.
+    \item \textbf{Causal Analysis:} Directed Acyclic Graphs (DAGs) and counterfactual intervention testing to differentiate genuine causal mechanisms from statistical correlations.
+    \item \textbf{Inverse Generative Social Science (IGSS):} Using genetic programming to search the space of executable agent rules that generate target macroscopic phenomena.
+    \item \textbf{Spatial Analytics:} Moran's $I$ and spatial point pattern statistics to validate simulated spatial distributions against empirical GIS data.
+\end{itemize}
+
+\section{Empirical and Face Validation}
+
+In social simulations where quantitative data is noisy, researchers rely on \textbf{Face Validation} to assess behavioral credibility:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Microface Validation:} Evaluates individual agent choices against established psychological and behavioral theories.
+    \item \textbf{Macroface Validation:} Assesses whether aggregate population distributions exhibit realistic macroscopic structures.
+    \item \textbf{Immersive Assessment:} Domain experts enter simulation environments via graphical dashboards or VR interfaces to observe and probe agent behaviors in real time.
+\end{enumerate}
+
+%=========================================================
+% CHAPTER VI: GABMS VALIDATION
+%=========================================================
+
+\chapter{GABMS VALIDATION}
+
+\section{The Fundamental Validation Dilemma}
+
+The integration of LLMs introduces the \textbf{Fundamental Validation Dilemma}. While traditional ABMs are transparent white-box systems with deterministic state transitions, Generative Agents rely on foundation models that function as probabilistic black boxes:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Stochastic Non-Determinism:} Temperature-based decoding generates divergent paths from identical starting seeds, invalidating deterministic replication.
+    \item \textbf{Opaque Internal Reasoning:} Internal states are distributed across billions of parameters without explicit algebraic transition equations.
+    \item \textbf{High-Dimensional Output Spaces:} Agent actions include unconstrained natural language requiring evaluation of semantic coherence, emotional nuance and truthfulness.
+\end{enumerate}
+
+\section{GABM Validation Workflows}
+
+Figure~\\ref{fig:fig3_validation_workflows} illustrates the integrated validation architecture formulated in the base paper, connecting validation methods with distinct validation purposes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{fig3_gabm_validation_workflows.png}
+    \caption{Validation workflows for GABMs, illustrating how various validation methods align with distinct validation purposes (Source: Base Research Paper Figure 3)}
+    \label{fig:fig3_validation_workflows}
+\end{figure}
+
+The framework operates across three distinct pathways:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Empirical Pathway:} Uses micro-level data (census, demographics) to condition baseline parameters and macro-level data (voting outcomes, traffic indices) to evaluate aggregate simulation trajectories statistically.
+    \item \textbf{Macroface Pathway:} Validates collective emergent phenomena (social network topologies, norm adoption, spatial clustering) arising without centralized control.
+    \item \textbf{Microface Pathway:} Assesses individual agent plausibility via structured interviews, ablation testing and automated dialogue audits.
+\end{enumerate}
+
+\section{Validating Existing Generative Agent Implementations}
+
+In Smallville~\\cite{park2023generative}, 100 evaluators interviewed agents across five categories: self-knowledge, memory retrieval, planning consistency, reaction plausibility and reflection depth. Ablation experiments demonstrated that removing memory causes repetitive behaviors, removing reflection hinders abstract reasoning, and removing planning induces erratic actions; the full architecture achieved statistically superior believability.
+
+In SOTOPIA~\\cite{sotopia2024}, the SOTOPIA-EVAL benchmark evaluates goal-driven social interactions across seven dimensions: Goal Completion, Believability, Knowledge Gained, Secret Keeping, Relationship Dynamics, Social Norm Adherence and Financial Benefit.
+
+\section{Automated Validation: LLM-as-a-Judge and Algorithmic Fidelity}
+
+To overcome the cost of human evaluation, researchers employ \textbf{LLM-as-a-Judge}~\\cite{zheng2023judging}, prompting models like GPT-4 to grade multi-agent dialogues. Dual-evaluation studies indicate high correlation on objective metrics (Goal Completion, Financial Benefit), but limitations in detecting subtle social nuance, sarcasm and strategic deception.
+
+Consequently, the base paper emphasizes \textbf{Algorithmic Fidelity}~\\cite{argyle2023out} and the \textbf{Similarity Principle}. Before deploying LLMs as simulation agents or evaluators, researchers must benchmark their baseline responses against validated sociological surveys~\\cite{serapio2023personality} to detect and mitigate systemic cultural biases.
+
+%=========================================================
+% CHAPTER VII: ABM VS GABM: A COMPARISON
+%=========================================================
+
+\chapter{ABM VS GABM: A COMPARISON}
+
+\section{Systematic Comparative Dimensions}
+
+Table~\\ref{tab:table3_comparison} reproduces the comparative analysis from Table III of the base paper, contrasting traditional ABMs (Rule-based, EA-based, RL-based) with GABMs across Resources, Agent Design, Agent Behavior and Validation.
+
+\begin{table}[H]
+\centering
+\caption{Comparison between traditional ABM paradigms and Generative ABM (GABM)}
+\label{tab:table3_comparison}
+\vspace{0.2cm}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{p{5.4cm} p{2.2cm} p{2.2cm} p{2.2cm} p{2.2cm}}
+\toprule
+\textbf{Evaluation Dimension} & \textbf{Rule-based} & \textbf{EA-based} & \textbf{RL-based} & \textbf{GABM} \\
+\midrule
+\multicolumn{5}{l}{\textbf{1. Resources}} \\
+\quad Computational Efficiency & Advantage & Limitation & Limitation & Limitation \\
+\quad Scalability & Advantage & Limitation & Limitation & Limitation \\
+\quad Data or Domain-Specific Knowledge & Advantage & Advantage & Advantage & Advantage \\
+\midrule
+\multicolumn{5}{l}{\textbf{2. Agent Design}} \\
+\quad Control over Agents & Advantage & Limitation & Limitation & Limitation \\
+\quad Learning During Simulation & Limitation & Advantage & Advantage & Limitation \\
+\quad Real-Time Optimization & Limitation & Advantage & Advantage & Limitation \\
+\quad Hyperparameters Tuning & Advantage & Limitation & Limitation & Limitation \\
+\quad Fast Prototyping & Limitation & Limitation & Limitation & Advantage \\
+\midrule
+\multicolumn{5}{l}{\textbf{3. Agent Behavior}} \\
+\quad Determinism & Advantage & Limitation & Limitation & Limitation \\
+\quad Reliable Decision-Making & Advantage & Limitation & Limitation & Limitation \\
+\quad Evolution & Limitation & Advantage & Advantage & Limitation \\
+\quad Cognitive Functions Simulation & Limitation & Limitation & Limitation & Advantage \\
+\quad Language Human-like Interactions & Limitation & Limitation & Limitation & Advantage \\
+\quad Flexible and Reactive Decisions & Limitation & Limitation & Advantage & Advantage \\
+\quad Nuanced Mental Models & Limitation & Limitation & Limitation & Advantage \\
+\midrule
+\multicolumn{5}{l}{\textbf{4. Validation}} \\
+\quad Transparency of Decision-Making & Advantage & Limitation & Limitation & Limitation \\
+\quad Validation Efficiency & Advantage & Limitation & Limitation & Limitation \\
+\quad Direct Human-Agent Interaction & Limitation & Limitation & Limitation & Advantage \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Key Trade-Offs and Architectural Insights}
+
+\subsection{Resources: Efficiency, Scalability and Knowledge}
+Rule-based models require simple CPU arithmetic ($\mathcal{O}(1)$ time complexity), scaling to millions of agents in macroeconomic or epidemic models. GABMs incur significant GPU inference latency and token costs, restricting cohorts to dozens or hundreds of agents. However, GABMs leverage broad pretrained world knowledge, eliminating the need to construct explicit domain rules from scratch.
+
+\subsection{Agent Design: Control, Learning and Prototyping}
+Rule-based models provide deterministic control over every logic branch. GABMs rely on prompt engineering, which is susceptible to semantic drift. Furthermore, LLM weights remain frozen during simulation; agent learning is confined to in-context memory accumulation. However, GABMs provide superior \textbf{Fast Prototyping}, allowing complex personas to be defined in minutes via natural language.
+
+\subsection{Behavior and Validation: Cognitive Fidelity vs. Transparency}
+Rule-based systems offer mathematical transparency and replicability, but cannot model open-ended language, emotional states or mental models. GABMs excel in cognitive realism and introduce \textbf{Direct Human-Agent Interaction}, enabling researchers to interview agents regarding their motivations.
+
+%=========================================================
+% CHAPTER VIII: GABMS: EMERGING CHALLENGES
+%=========================================================
+
+\chapter{GABMS: EMERGING CHALLENGES}
+
+\section{Challenge 1: Large Language Model Hallucinations}
+
+Hallucinations undermine GABM validity across two primary modes:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Factuality Hallucinations:} Generating assertions that contradict environmental ground truth (e.g., asserting a bridge exists across an uncrossable river).
+    \item \textbf{Faithfulness Hallucinations:} Violating assigned persona constraints, moral values or historical context (e.g., a pacifist initiating unprovoked violence).
+\end{enumerate}
+
+Mitigation strategies operate across three stages:
+\begin{itemize}
+    \item \textbf{Data Stage:} Grounding prompts via Retrieval-Augmented Generation (RAG) using verified real-time simulation facts.
+    \item \textbf{Training Stage:} Applying RLHF and parameter pruning to enforce persona consistency.
+    \item \textbf{Inference Stage:} Enforcing formal grammar constraints (e.g., JSON schema) and deploying peer verification protocols where secondary agents audit outputs.
+\end{itemize}
+
+\section{Challenge 2: Validation Bottlenecks and Nuance Detection}
+
+Automated LLM judges exhibit critical limitations:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Nuance Blindness:} Evaluators struggle with passive aggression, sarcasm and strategic deception, showing bias toward artificially polite agents.
+    \item \textbf{Evaluator Self-Preference Bias:} Foundation models favor text produced by models of their own architectural family.
+    \item \textbf{Lack of Standardized Benchmarks:} Absence of standardized multi-agent benchmarks prevents rigorous cross-study comparisons.
+\end{enumerate}
+
+\section{Challenge 3: Computational Overhead and Scaling Bottlenecks}
+
+Scaling constraints arise across three bottlenecks:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Quadratic Self-Attention Overhead:} Computational complexity scales quadratically with prompt token length $n$~\\cite{vaswani2017attention}:
+    \begin{equation}
+    \text{Complexity}_{\text{Attention}} = \mathcal{O}(n^2 \cdot d)
+    \end{equation}
+    where $d$ is embedding dimension. Expanding memory streams escalate inference latency.
+    \item \textbf{Pairwise Communication Scaling:} In a network of $N$ interacting agents, potential dialogue channels scale quadratically:
+    \begin{equation}
+    \text{Complexity}_{\text{Communication}} = \mathcal{O}(N^2)
+    \end{equation}
+    \item \textbf{Memory Retrieval Indexing:} Vector search across $M$ records introduces indexing complexity $\mathcal{O}(\log M)$ to $\mathcal{O}(M)$ per agent per tick.
+\end{enumerate}
+
+%=========================================================
+% CHAPTER IX: DISCUSSION
+%=========================================================
+
+\chapter{DISCUSSION}
+
+\section{Addressing Broader Epistemological Questions}
+
+The base research paper examines two central philosophical questions:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Explanatory Power in Black-Box Systems:} In Epstein's framework, generation implies explanation only when micro-rules are transparent. GABMs establish explanatory validity through mechanistic interpretability and counterfactual prompt ablation to identify necessary psychological drivers.
+    \item \textbf{Emergence vs. Pretraining Bias:} Differentiating genuine emergent behavior from pre-ingested training corpora requires baseline control experiments using unprompted and prompt-inverted agent cohorts.
+\end{enumerate}
+
+\section{Cities: A Natural Testbed for GABMs}
+
+Urban environments provide an ideal deployment testbed:
+\begin{itemize}
+    \item \textbf{Textual Alignment:} Urban regulations, historical archives and census data align with LLM training corpora, providing rich baseline representations.
+    \item \textbf{Qualitative Experience Mapping (QEM):} Traditional models (such as MATSim~\\cite{matsim2016}) simulate physical trajectories. GABMs enable tracking subjective experiences: safety perceptions in unlit alleys, park aesthetic appreciation and transit stress, informing human-centric urban design.
+\end{itemize}
+
+\section{The Proposed Paradigm: Combined Hybrid ABM-GABM Architecture}
+
+To overcome computational bottlenecks while preserving behavioral realism, the base paper proposes an integrated \textbf{Hybrid ABM-GABM Architecture}:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Mechanistic Layer (Traditional ABM):} High-frequency, deterministic processes (kinematics, collision avoidance, shortest-path routing) execute at $\mathcal{O}(1)$ or $\mathcal{O}(N)$ without invoking LLMs.
+    \item \textbf{Cognitive Layer (Generative Agents):} Foundation model inference is invoked selectively only for complex deliberations, ethical dilemmas and social dialogue.
+\end{enumerate}
+
+\subsection{Case Study: Building Fire Evacuation}
+In an emergency building fire evacuation:
+\begin{itemize}
+    \item The traditional layer computes toxic smoke dispersion and pedestrian stairwell routing via cellular automata.
+    \item The generative layer evaluates moral dilemmas (e.g., deciding whether to re-enter a burning floor to assist a trapped colleague versus immediate evacuation).
+    \item Sensor data analytics validate evacuation clearance durations, while post-evacuation agent interviews validate psychological panic and altruistic behaviors.
+\end{itemize}
+
+%=========================================================
+% CHAPTER X: CONCLUSION
+%=========================================================
+
+\chapter{CONCLUSION}
+
+\section{Summary of Key Insights}
+
+This seminar report has presented a comprehensive investigation of Generative Agents in Agent-Based Modeling based on the survey by Adornetto et al.~\\cite{adornetto2025generative}. The primary findings are synthesized across four core pillars:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Behavioral Shift:} Transitioning from rigid homo economicus heuristics toward heterogeneous agents capable of natural language, memory retention and planning.
+    \item \textbf{Conceptual Clarity:} Resolving the boundary between Epstein's classic generative social science and modern LLM generative AI.
+    \item \textbf{Multi-Tiered Validation:} Establishing a validation blueprint combining quantitative empirical data, face validation, interview ablations and automated LLM judges.
+    \item \textbf{Hybrid Architecture:} Coupling deterministic rule-based physics with high-level cognitive LLM deliberation to resolve scalability bottlenecks.
+\end{enumerate}
+
+\section{Future Research Trajectories}
+
+Future research must focus on:
+\begin{enumerate}[label=\arabic*.]
+    \item Developing specialized Small Language Models (SLMs) optimized for low-latency agent inference;
+    \item Establishing open-source benchmark simulation environments for cross-study validation;
+    \item Formulating mathematical bounds on hallucination rates in civic policy models; and
+    \item Establishing ethical protocols to prevent bias propagation in synthetic societies.
+\end{enumerate}
+
+%=========================================================
+% REFERENCES (UNNUMBERED HEADING)
+%=========================================================
+
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+
+\begingroup
+\fontsize{11}{14}\selectfont
+\setlength{\parskip}{0pt}
+\begin{enumerate}[label={[\arabic*]}, itemsep=2pt, parsep=0pt, topsep=0pt, leftmargin=2em]
+
+\bibitem{adornetto2025generative}
+C.~Adornetto, A.~Mora, K.~Hu, L.~I.~Garcia, P.~Atchade-Adelomou, G.~Greco, L.~A.~A.~Pastor, and K.~Larson,
+``Generative Agents in Agent-Based Modeling: Overview, Validation, and Emerging Challenges,''
+\textit{IEEE Transactions on Artificial Intelligence}, vol.~6, no.~12, pp.~3165-3184, Dec.~2025, doi: 10.1109/TAI.2025.3566362.
+
+\bibitem{park2023generative}
+J.~S.~Park, J.~C.~O'Brien, C.~J.~Cai, M.~R.~Morris, P.~Liang, and M.~S.~Bernstein,
+``Generative Agents: Interactive Simulacra of Human Behavior,''
+in \textit{Proc. 36th Annual ACM Symposium on User Interface Software and Technology (UIST)}, San Francisco, CA, USA, Oct.~2023, pp.~1-22.
+
+\bibitem{epstein1999generative}
+J.~M.~Epstein,
+``Agent-based computational models and generative social science,''
+\textit{Complexity}, vol.~4, no.~5, pp.~41-60, May~1999.
+
+\bibitem{schelling1971dynamic}
+T.~C.~Schelling,
+``Dynamic models of segregation,''
+\textit{Journal of Mathematical Sociology}, vol.~1, no.~2, pp.~143-186, Jul.~1971.
+
+\bibitem{reynolds1987flocks}
+C.~W.~Reynolds,
+``Flocks, herds and schools: A distributed behavioral model,''
+in \textit{Proc. 14th Annual Conference on Computer Graphics and Interactive Techniques (SIGGRAPH)}, Anaheim, CA, USA, Aug.~1987, pp.~25-34.
+
+\bibitem{holland1992adaptation}
+J.~H.~Holland,
+\textit{Adaptation in Natural and Artificial Systems: An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence},
+Cambridge, MA, USA: MIT Press, 1992.
+
+\bibitem{sutton2018reinforcement}
+R.~S.~Sutton and A.~G.~Barto,
+\textit{Reinforcement Learning: An Introduction},
+2nd~ed., Cambridge, MA, USA: MIT Press, 2018.
+
+\bibitem{sotopia2024}
+H.~Wang, X.~Guo, Z.~Deng, H.~Shi, H.~Shen, B.~Zheng, E.~P.~Xing, and Z.~Hu,
+``Sotopia: Interactive Evaluation for Social Intelligence in Language Agents,''
+in \textit{Proc. International Conference on Learning Representations (ICLR)}, Vienna, Austria, May~2024.
+
+\bibitem{socialnorms2024}
+S.~He, H.~Zheng, L.~Du, and W.~Ding,
+``Emergence of Social Norms in Generative Agent Societies: Principles and Architecture,''
+in \textit{Proc. 38th AAAI Conference on Artificial Intelligence (AAAI)}, Vancouver, Canada, Feb.~2024, pp.~22120-22128.
+
+\bibitem{concordia2023}
+A.~Vezhnevets, J.~P.~Agapiou, A.~Aharon, R.~Boning, E.~A.~Duenez-Guzman, J.~Leibo, et~al.,
+``Generative Agent-Based Modeling with Actions Grounded in Physical, Social, or Digital Space Using Concordia,''
+\textit{arXiv preprint arXiv:2312.03664}, Dec.~2023.
+
+\bibitem{s32023}
+C.~Gao, X.~Lan, Z.~Lu, J.~Mao, J.~Piao, H.~Wang, D.~Jin, and Y.~Li,
+``S$^3$: Social-Network Simulation System with Large Language Model-Empowered Agents,''
+\textit{arXiv preprint arXiv:2307.14984}, Jul.~2023.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N.~Gomez, L.~Kaiser, and I.~Polosukhin,
+``Attention Is All You Need,''
+in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, Long Beach, CA, USA, Dec.~2017, pp.~5998-6008.
+
+\bibitem{argyle2023out}
+L.~P.~Argyle, E.~C.~Busby, N.~Fulda, J.~R.~Gubler, C.~Rytting, and D.~Wingate,
+``Out of One, Many: Using Language Models to Simulate Human Samples,''
+\textit{Political Analysis}, vol.~31, no.~3, pp.~337-351, Jul.~2023.
+
+\bibitem{axtell2002why}
+R.~Axtell,
+``Why Agents? On the Varied Motivations for Agent Computing in the Social Sciences,''
+in \textit{Proc. Workshop on Agent-Based Modeling: Investment, Risk, and Policy}, Santa Fe Institute, Santa Fe, NM, USA, 2002.
+
+\bibitem{bonabeau2002agent}
+E.~Bonabeau,
+``Agent-based modeling: Methods and techniques for simulating human systems,''
+\textit{Proc. National Academy of Sciences (PNAS)}, vol.~99, no.~suppl.~3, pp.~7280-7287, May~2002.
+
+\bibitem{macal2010tutorial}
+C.~M.~Macal and M.~J.~North,
+``Tutorial on agent-based modelling and simulation,''
+\textit{Journal of Simulation}, vol.~4, no.~3, pp.~151-162, Aug.~2010.
+
+\bibitem{grimm2006standard}
+V.~Grimm, U.~Berger, F.~Bastiansen, S.~Eliassen, V.~Ginot, J.~Giske, et~al.,
+``A standard protocol for describing individual-based and agent-based models,''
+\textit{Ecological Modelling}, vol.~198, no.~1-2, pp.~115-126, Sep.~2006.
+
+\bibitem{matsim2016}
+A.~Horni, K.~Nagel, and K.~W.~Axhausen,
+\textit{The Multi-Agent Transport Simulation MATSim},
+London, UK: Ubiquity Press, 2016.
+
+\bibitem{serapio2023personality}
+G.~Serapio-Garcia, M.~Mustafa, S.~Verma, M.~Caron, M.~Matari{\'c}, and A.~Faust,
+``Personality Traits in Large Language Models,''
+\textit{arXiv preprint arXiv:2307.00184}, Jul.~2023.
+
+\bibitem{zheng2023judging}
+L.~Zheng, W.~Chiang, Y.~Sheng, S.~Zhuang, Z.~Wu, Y.~Zhuang, Z.~Lin, Z.~Li, D.~Xing, H.~Zhang, J.~E.~Gonzalez, and I.~Stoica,
+``Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena,''
+in \textit{Advances in Neural Information Processing Systems (NeurIPS)}, New Orleans, LA, USA, Dec.~2023, pp.~46595-46623.
+
+\end{enumerate}
+\endgroup
+
+\end{document}
