@@ -588,16 +588,16 @@ This seminar report presents an in-depth investigation of the survey paper title
 
 Agent-Based Modeling (ABM) is an established bottom-up computational paradigm designed to simulate the simultaneous actions and autonomous interactions of individual entities, designated as agents, to assess how collective systemic phenomena emerge across time~\cite{bonabeau2002agent,macal2010tutorial}. Unlike classical aggregate top-down modeling techniques that rely on systems of differential equations or mean-field approximations, ABMs operate from the micro-level upward. By explicitly instantiating autonomous agents endowed with distinct internal states, behavioral heuristics, localized perception scopes and decentralized communication channels, researchers observe how macro-level regularities spontaneously emerge from localized micro-level interactions.
 
-Over several decades, ABMs have become foundational across multiple disciplines~\cite{axtell2002why}. In epidemiology, ABMs model pathogen transmission through contact networks to evaluate targeted non-pharmaceutical interventions such as localized quarantines, school closures and vaccination schedules. In computational finance, multi-agent platforms capture market crashes, asset bubbles and liquidity contagion that aggregate equilibrium models routinely fail to anticipate. In urban planning, agent simulations evaluate vehicular routing, pedestrian dynamics and infrastructural transit modifications. The central epistemological strength of ABM lies in its ability to capture non-linear systemic dynamics that cannot be resolved through closed-form mathematical equations.
+Over several decades, ABMs have become foundational across multiple disciplines~\cite{axtell2002why}. In epidemiology, ABMs model pathogen transmission through contact networks to evaluate targeted non-pharmaceutical interventions. In computational finance, multi-agent platforms capture market crashes, asset bubbles and liquidity contagion. In urban planning, agent simulations evaluate vehicular routing, pedestrian dynamics and infrastructural transit modifications. The central epistemological strength of ABM lies in its ability to capture non-linear systemic dynamics that cannot be resolved through closed-form mathematical equations.
 
 \section{Limitations of Classical Behavioral Models}
 \label{sec:limitations}
 
-Despite their utility, traditional ABMs have historically relied on rigid mathematical formulas, discrete state-transition matrices or rule sets built upon neoclassical economic assumptions of perfect rationality (\textit{homo economicus}). These frameworks assume agents possess complete information, consistent preferences and unbounded computational capacity to maximize expected utility. Real-world human decision-making, however, is characterized by bounded rationality, psychological heuristics, cognitive biases, shifting contexts and emotional volatility, as established across behavioral economics and psychology.
+Despite their utility, traditional ABMs have historically relied on rigid mathematical formulas, discrete state transitions or rule sets built upon neoclassical economic assumptions of perfect rationality (\textit{homo economicus}). These frameworks assume agents possess complete information, consistent preferences and unbounded computational capacity to maximize expected utility. Real-world human decision-making, however, is characterized by bounded rationality, psychological heuristics, cognitive biases, shifting contexts and emotional volatility.
 
 Classical agent architectures exhibit several critical constraints:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Cognitive Homogeneity and Coarse Heuristics:} Due to engineering complexity, agents are frequently modeled as homogeneous populations or partitioned into coarse archetypes, neglecting psychological diversity, educational backgrounds and cultural values.
+    \item \textbf{Cognitive Homogeneity and Coarse Heuristics:} Due to engineering complexity, agents are frequently modeled as homogeneous populations or partitioned into coarse archetypes, neglecting psychological diversity and cultural backgrounds.
     \item \textbf{Absence of Natural Language Interaction:} Communication in traditional simulations is restricted to exchanging discrete numerical values or binary flags. Agents cannot hold open-ended conversations, negotiate compromises or interpret subjective nuances.
     \item \textbf{Static Memory and Lack of Cognitive Reflection:} Past interactions are either discarded or reduced to running averages. Agents lack chronological episodic memories and cannot synthesize past experiences into higher-order abstract beliefs.
     \item \textbf{Brittleness and Inflexible Adaptation:} Hand-crafted if-then rules cannot adapt when agents encounter novel scenarios outside their pre-programmed logic, rendering traditional models brittle in open-ended social settings.
@@ -608,16 +608,18 @@ Classical agent architectures exhibit several critical constraints:
 
 The emergence of Large Language Models (LLMs) built upon Transformer architectures~\cite{vaswani2017attention} provides a foundation to overcome these limitations. Pretrained on massive multi-modal and textual corpora, LLMs encapsulate representations of commonsense reasoning, psychological archetypes and linguistic capabilities.
 
-By embedding LLMs within the decision loop of simulation entities, researchers have developed \textbf{Generative Agents (GAs)} and \textbf{Generative Agent-Based Models (GABMs)}~\cite{adornetto2025generative}. In the seminal work by Park et al.~\cite{park2023generative}, generative agents are defined as ``computational software agents that simulate believable human behavior.'' While intuitive, the base research paper notes that this definition lacks a formal, mathematical interpretation of believability, complicating the objective verification of human-like conversational dynamics. Consequently, human validators are often engaged to rate agent credibility. The level of validation rigor must align with simulation purpose: because ABMs serve as world approximations intended to guide research, qualitative validation is encouraged to stimulate theoretical advancements.
-
-Rather than adhering to hand-crafted if-then rules, generative agents perceive environmental cues, retrieve relevant episodic memories, generate reflections, formulate daily plans and communicate via natural language dialogue. This represents an epistemological transition in computational social science: moving from mathematically bounded entities toward cognitively rich, linguistically interactive human simulacra.
+By embedding LLMs within the decision loop of simulation entities, researchers have developed \textbf{Generative Agents (GAs)} and \textbf{Generative Agent-Based Models (GABMs)}~\cite{adornetto2025generative}. Rather than adhering to hand-crafted if-then rules, generative agents perceive environmental cues, retrieve relevant episodic memories, generate reflections, formulate daily plans and communicate via natural language dialogue. This represents an epistemological transition in computational social science: moving from mathematically bounded entities toward cognitively rich, linguistically interactive human simulacra~\cite{park2023generative}.
 
 \section{Seminar Objectives and Report Organization}
 \label{sec:report_objectives}
 
-The objective of this seminar report is to provide a comprehensive technical study of the survey paper by Adornetto et al.~\cite{adornetto2025generative} published in \textit{IEEE Transactions on Artificial Intelligence} (December 2025). The base paper conducted a systematic survey by identifying key literature across Google Scholar and DBLP using search queries such as ``Generative Agent,'' ``ABMs Validation,'' ``Agent-based modeling'' and ``Generative ABMs,'' supplemented by citation tracking from influential generative architectures.
+The objective of this seminar report is to provide a comprehensive technical study of the survey paper by Adornetto et al.~\cite{adornetto2025generative} published in \textit{IEEE Transactions on Artificial Intelligence} (December 2025). The report investigates the architectural foundations, evolution mechanisms, validation methodologies and open challenges of Generative Agents in ABM.
 
-The report is organized into ten chapters matching the base paper: Chapter~1 introduces the background; Chapter~2 examines ABMs and Generative ABMs; Chapter~3 reviews Evolving Agents; Chapter~4 details Generative Agents; Chapter~5 outlines the Informal Theory of ABMs Validation; Chapter~6 investigates GABMs Validation; Chapter~7 provides a Comparison between ABM and GABM; Chapter~8 analyzes Emerging Challenges; Chapter~9 discusses urban testbeds and hybrid architectures; and Chapter~10 concludes the report.
+The report is organized into ten chapters matching the base paper: Chapter 1 introduces the background; Chapter 2 examines ABMs and Generative ABMs; Chapter 3 reviews Evolving Agents; Chapter 4 details Generative Agents; Chapter 5 outlines the Informal Theory of ABMs Validation; Chapter 6 investigates GABMs Validation; Chapter 7 provides a Comparison between ABM and GABM; Chapter 8 analyzes Emerging Challenges; Chapter 9 discusses urban testbeds and hybrid architectures; and Chapter 10 concludes the report.
+
+%=========================================================
+% CHAPTER 2: ABMS AND GENERATIVE ABMS
+%=========================================================
 
 \chapter{ABMS AND GENERATIVE ABMS}
 \label{chap:abms_and_gabms}
@@ -700,38 +702,34 @@ To illustrate this distinction, the base paper compares a municipal traffic simu
 \section{Historical Trajectory of Agent Decision Architectures}
 \label{sec:history_agents}
 
-Agent decision architectures in computational simulation have historically evolved from deterministic Finite State Machines (FSMs) toward adaptive optimization models. While FSMs provide computational efficiency ($\mathcal{O}(1)$ time complexity), expanding state spaces creates combinatorial explosion, making hand-crafted rules unmaintainable in complex environments. To model dynamic social systems, researchers shifted focus toward algorithms that enable agents to evolve and adapt within evolving simulation runs.
+Agent decision architectures have evolved from deterministic Finite State Machines (FSMs) toward adaptive optimization models. While FSMs provide computational efficiency ($\mathcal{O}(1)$ time complexity), expanding state spaces creates combinatorial explosion, making hand-crafted rules unmaintainable in complex environments.
 
 \section{Evolutionary Algorithms in Agent Systems}
 \label{sec:eas}
 
-To incorporate adaptation, researchers introduced \textbf{Evolutionary Algorithms (EAs)} grounded in Neo-Darwinian mechanics~\cite{holland1992adaptation}. In EA-based ABMs, agent behavioral policies are encoded as chromosomes and iteratively refined through:
+To incorporate adaptation, researchers introduced \textbf{Evolutionary Algorithms (EAs)} grounded in Neo-Darwinian mechanics~\cite{holland1992adaptation}. Agent policies are encoded as chromosomes and optimized through:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Selection:} Allocating reproduction opportunities based on objective fitness evaluations;
-    \item \textbf{Crossover (Recombination):} Splicing and merging parameters from high-performing parent policies to yield novel offspring strategies; and
-    \item \textbf{Mutation:} Introducing random parameter perturbations to explore unvisited policy spaces and prevent stagnation.
+    \item \textbf{Selection:} Allocating reproduction opportunities based on objective fitness;
+    \item \textbf{Crossover:} Merging parameters from high-performing parent policies; and
+    \item \textbf{Mutation:} Introducing random parameter perturbations to explore search spaces.
 \end{enumerate}
 
-Advanced variants include \textbf{Evolution Strategies (ES)}, which focus on self-adaptive mutation for continuous parameter optimization in dynamic environments, and \textbf{Cultural Algorithms (CAs)}~\cite{adornetto2025generative}. Cultural algorithms extend the evolutionary paradigm by incorporating a shared \textit{Belief Space}, a higher-level knowledge repository storing normative, spatial, historical and domain knowledge extracted from population experiences to guide adaptation.
-
-Despite wide usage, EA-based ABMs exhibit critical bottlenecks. Computational demands are high due to iterative population evaluations. EAs frequently suffer from premature convergence to local optima, reducing behavioral diversity. Furthermore, performance is sensitive to hyperparameter tuning, such as mutation rates and selection pressures. In cultural algorithms, continuous interactions between agents and the belief space escalate computational overhead. Ineffective belief spaces can mislead populations, cause premature convergence and degrade collective performance, such as in traffic simulations where shared routing strategies lead all agents to avoid a specific street, inadvertently creating severe congestion elsewhere.
+Advanced variants include \textbf{Evolution Strategies (ES)} and \textbf{Cultural Algorithms (CAs)}, which augment populations with a shared \textit{Belief Space} storing normative, spatial and domain knowledge. However, EA models suffer from premature convergence on local optima, sensitivity to hyperparameter tuning and lack of semantic interpretability. In traffic simulations, premature convergence can cause all agents to avoid a specific road, inadvertently creating severe bottlenecks elsewhere~\cite{adornetto2025generative}.
 
 \section{Reinforcement Learning in Multi-Agent Environments}
 \label{sec:rl}
 
-The integration of \textbf{Reinforcement Learning (RL)}~\cite{sutton2018reinforcement} frames decision-making as a Markov Decision Process $\langle \mathcal{S}, \mathcal{U}, \mathcal{P}, \mathcal{R}, \gamma \rangle$, where agents maximize expected discounted cumulative rewards:
+The integration of \textbf{Reinforcement Learning (RL)}~\cite{sutton2018reinforcement} frames decision-making as a Markov Decision Process $\langle \mathcal{S}, \mathcal{U}, \mathcal{P}, \mathcal{R}, \gamma \rangle$, where agents maximize expected discounted rewards:
 \begin{equation}
 J(\pi) = \mathbb{E}_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^k \mathcal{R}(s_{t+k}, u_{t+k}) \right]
 \end{equation}
 
-In multi-agent simulation, RL has been deployed across diverse domains, including pandemic emergencies, traffic management, residential land growth and economic systems. In pedestrian mobility simulations, agents navigate complex transit facilities by observing surroundings and adjusting trajectories, receiving positive rewards for progress toward exits and penalties for collisions or delays.
-
-However, the discrete formulation of RL introduces fundamental constraints. RL relies heavily on hand-crafted reward functions, predefined state features and specialized domain engineering. In emergency pandemic simulations, agents maintaining social distance based on perceived fear must have fear explicitly programmed into reward weights. This rigid formulation limits generalization beyond programmed responses, lacking the dynamic reasoning needed for naturalistic behaviors such as negotiation, deception, persuasion and cultural adaptation. Early experimental initiatives have begun integrating RL algorithms with language models to combine policy optimization with communicative interaction.
+In multi-agent settings, RL has been applied to pedestrian dynamics and traffic management. In pedestrian mobility simulations, agents optimize routes by receiving positive rewards for exit progress and penalties for collisions. However, RL relies on hand-crafted reward functions that require domain engineering. Furthermore, rigid formulations limit adaptability beyond programmed tasks, lacking the dynamic reasoning needed for negotiation, deception and persuasion.
 
 \section{Generative AI Integration in ABM Development}
 \label{sec:genai_roles}
 
-Generative AI addresses these historical limitations by contributing to two distinct areas of ABM development: \textbf{Structural Specification} and \textbf{Output Analysis}, illustrated in Figure~\ref{fig:fig1_ai_in_abm}.
+Generative AI addresses these challenges by contributing to two distinct areas of ABM development: \textbf{Structural Specification} and \textbf{Output Analysis}, illustrated in Figure~\ref{fig:fig1_ai_in_abm}.
 
 \begin{figure}[H]
     \centering
@@ -741,19 +739,21 @@ Generative AI addresses these historical limitations by contributing to two dist
 \end{figure}
 
 \subsection{Structural Specification}
-Structural specification governs how simulation environments and agent populations are established prior to and during simulation:
 \begin{itemize}
-    \item \textbf{Population Synthesis:} Generative models create synthetic datasets of agent characteristics, personas and daily activity schedules based on aggregate census data. Crucially, the base paper notes that when generative models generate agents \textit{ex-ante}, it is not accurate to refer to them as GAs, because their within-simulation evolution does not leverage generative processes.
-    \item \textbf{Decision Making via Interactions:} Foundation models act as decentralized cognitive engines. Agents perceive environmental states, interpret interactions and formulate behavioral decisions dynamically. Inter-agent communication occurs via open-ended natural language, allowing genuine Generative Agents to emerge.
-    \item \textbf{Scenario Generation:} Generative AI synthesizes dynamic environmental perturbations, resource crises and policy shifts without manual scripting.
+    \item \textbf{Population Synthesis:} LLMs synthesize representative populations endowed with realistic demographics and Big Five personality profiles based on census data.
+    \item \textbf{Decision Making via Interactions:} Foundation models act as decentralized cognitive engines. Agents interpret situations and negotiate via natural language dialogue.
+    \item \textbf{Scenario Generation:} Generative AI synthesizes dynamic environmental shocks, resource crises and policy interventions without manual scripting.
 \end{itemize}
 
 \subsection{Output Analysis}
-Output analysis pertains to the interpretation and validation of unfolding simulation states:
 \begin{itemize}
-    \item \textbf{Macro-Level Emergence Tracking:} Deep learning models monitor high-dimensional simulation state logs, detecting subtle emergent social patterns and collective tipping points.
-    \item \textbf{Narrative Summarization and Synthetic Interviewing:} Researchers can directly interview individual agents or synthetic communities in natural language regarding the rationale behind their choices and subjective emotional experiences.
+    \item \textbf{Macro-Level Emergence Tracking:} Deep learning models track high-dimensional simulation state logs to detect subtle emergent social patterns and tipping points.
+    \item \textbf{Narrative Summarization and Synthetic Interviewing:} Observers can directly interview individual agents or synthetic communities in natural language regarding the rationale behind their choices.
 \end{itemize}
+
+%=========================================================
+% CHAPTER 4: GENERATIVE AGENTS
+%=========================================================
 
 \chapter{GENERATIVE AGENTS}
 \label{chap:generative_agents}
@@ -777,11 +777,9 @@ Architecturally, GABMs decouple simulations into a \textbf{Mechanical Environmen
 
 The base research paper establishes a clear distinction between an agent's static parameters and dynamic status:
 \begin{itemize}
-    \item \textbf{Static Baseline Parameters:} Invariant identity attributes initialized prior to simulation, including demographic data (age, sex, income, occupation), baseline Big Five personality traits and static social network graphs. These are persistent prompts anchoring agent identity.
-    \item \textbf{Dynamic Runtime Status:} Fluctuating state variables that evolve during simulation, such as emotional affect, spatial coordinates, active goals and chronological memories, illustrated in Figure~\ref{fig:fig2_feedback_loop}(c).
+    \item \textbf{Static Baseline Parameters:} Invariant identity attributes initialized prior to simulation, including demographic data, baseline Big Five personality traits and static social network graphs. These are persistent prompts anchoring agent identity.
+    \item \textbf{Dynamic Runtime Status:} Fluctuating state variables that evolve during simulation, such as emotional affect, spatial coordinates, active goals and chronological memories. These are maintained externally in structured text decoupled from the prompt engine.
 \end{itemize}
-
-A major practical advantage highlighted in the base paper is that all information contained in the agent status remains in the form of structured text. LLMs can directly interpret, update and reason over structured text without requiring lossy translation into rigid mathematical vectors, facilitating peer-to-peer social influence and dynamic sentiment tracking.
 
 \section{Decision Architectures: Inferential vs. Conversational Loops}
 \label{sec:feedback_loops}
@@ -799,8 +797,6 @@ The cognitive loop operates via two distinct feedback architectures, illustrated
     \item \textbf{Inferential Feedback Loop:} As shown in Figure~\ref{fig:fig2_feedback_loop}(a), the agent ingests its internal status and an environmental event trigger, executes inference and directly outputs a discrete physical action that updates the simulation environment.
     \item \textbf{Conversational Feedback Loop:} As shown in Figure~\ref{fig:fig2_feedback_loop}(b), incoming communicative events trigger an internal status update, prompting the agent to synthesize a natural language response transmitted to neighboring agents.
 \end{enumerate}
-
-In grounded environments such as Concordia~\cite{concordia2023}, an explicit Game Master (GM) agent arbitrates interactions, handling world physics, validating physical plausibility and generating event statements.
 
 \section{Core Cognitive Modules}
 \label{sec:cognitive_modules}
@@ -820,7 +816,7 @@ where $\alpha, \beta, \gamma \ge 0$ are non-negative weighting parameters:
 \end{enumerate}
 
 \subsection{Hierarchical Reflection Engine}
-To prevent retrieval from becoming flooded with granular observations, the reflection engine periodically synthesizes raw memories into abstract insights. Triggered when cumulative memory importance exceeds a threshold, the agent formulates salient high-level questions, retrieves supporting evidence and stores abstract beliefs back into the stream, creating a hierarchical reflection tree.
+To prevent retrieval from becoming flooded with granular observations, the reflection engine periodically synthesizes raw memories into abstract insights. Triggered when the cumulative importance of recent memories exceeds a threshold, the agent formulates salient high-level questions and synthesizes insights that are stored back in the memory stream, creating a hierarchical reflection tree.
 
 \subsection{Dynamic Recursive Planning}
 Planning operates recursively: agents draft a broad daily agenda, decompose hourly tasks into 5-to-15 minute action sequences and monitor environmental feedback. If unexpected events occur, execution is interrupted to revise plans dynamically.
@@ -838,7 +834,7 @@ Table~\ref{tab:table2_gabms} summarizes prominent GABM platforms analyzed in the
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.05}
 \footnotesize
-\begin{tabular}{|p{0.8cm}|p{0.8cm}|p{3.8cm}|p{4.2cm}|p{4.4cm}|}
+\begin{tabular}{|p{1.0cm}|p{1.0cm}|p{4.0cm}|p{4.1cm}|p{4.1cm}|}
 \hline
 \textbf{Ref} & \textbf{Year} & \textbf{Framework \& Scenario} & \textbf{Contribution Highlights} & \textbf{Validation Methodology} \\
 \hline
@@ -852,18 +848,12 @@ Table~\ref{tab:table2_gabms} summarizes prominent GABM platforms analyzed in the
 \hline
 \cite{s32023} & 2023 & \textbf{S3 Platform:} Social network information diffusion. & LLM agents with attitude and emotion tracking. & Empirical matching against real-world social network traces. \\
 \hline
-\cite{adornetto2025generative} & 2023 & \textbf{Epidemic GAs:} Emergency dynamics and pandemic decisions. & Inferential GAs for decision-making without conversation. & Visualization verifying alignment with real-world epidemic patterns. \\
-\hline
 \end{tabular}
 \end{table}
 
-Beyond these core platforms, recent architectures introduce key innovations:
-\begin{itemize}
-    \item \textbf{Lyfe Architecture:} Employs a hierarchical action selection component to delegate only necessary decisions to LLMs, reducing costly API calls while enabling simultaneous conversational interaction with multiple agents.
-    \item \textbf{CRSEC Norm Emergence Pipeline:} Implements four modules (Creation \& Representation, Spreading, Evaluation, Compliance) to study normative internalization, demonstrated through an experienced smoker internalizing and enforcing indoor smoking bans.
-    \item \textbf{Qualitative Emotion Simulation:} The S3 platform tracks dynamic attitudes and three-tier emotional intensity levels (calm, moderate, intense) during information propagation following real-world societal shocks.
-    \item \textbf{Urban GABM Extensions:} Incorporates commuter adaptation under transit disruptions and extreme weather, alongside socioeconomic neighborhood evolution assessing affordable housing policies.
-\end{itemize}
+%=========================================================
+% CHAPTER 5: INFORMAL THEORY OF ABMS VALIDATION
+%=========================================================
 
 \chapter{INFORMAL THEORY OF ABMS VALIDATION}
 \label{chap:abm_validation}
@@ -871,53 +861,50 @@ Beyond these core platforms, recent architectures introduce key innovations:
 \section{Epistemological Principles of Simulation Validation}
 \label{sec:validation_principles}
 
-Validation in computational modeling establishes whether a computational model accurately represents the target real-world system within its intended domain~\cite{grimm2006standard}. Traditional modeling literature draws a fundamental distinction between:
+Validation in computational modeling establishes whether a model accurately represents the target system~\cite{grimm2006standard}. Traditional literature separates:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Verification:} An internal algorithmic and engineering check answering the question: \textit{``Was the model built right?''} Verification ensures that software code, state transition logic and numerical algorithms correctly implement conceptual specifications without programming flaws.
-    \item \textbf{Validation:} An external empirical evaluation answering the question: \textit{``Was the right model built?''} Validation assesses whether simulated behaviors faithfully correspond to empirical real-world observations and physical ground truth.
+    \item \textbf{Verification:} Ensuring internal correctness of code and algorithms (\textit{``Was the model built right?''}); and
+    \item \textbf{Validation:} Ensuring model outputs conform to empirical real-world behavior (\textit{``Was the right model built?''}).
 \end{enumerate}
 
-The base research paper highlights the four-step validation guidelines formulated by Rand and Rust~\cite{adornetto2025generative}. Steps 1 and 2 focus on empirical validation: Step~1 evaluates input parameters against real-world data, while Step~2 statistically validates model outputs against empirical observations or comparable benchmarks. Steps 3 and 4 encompass face validation: Step~3 conducts microface validation of individual-level mechanisms, and Step~4 performs macroface validation of aggregate emergent patterns.
+Validation should be guided by a formal hierarchy of evidence, where the strongest evidence comes from ecological validity and rigorous experiments, while observational data and consistency with previous theories are weaker. The rigor required depends on model purpose: exploratory research models can operate under lower thresholds, whereas models guiding consequential real-world decisions demand high empirical proof. Models should also be evaluated on their productivity in stimulating further research.
 
 \section{Foundational Validation Methodologies}
 \label{sec:foundational_val}
 
 Traditional ABM validation relies on five established foundational methods:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Data Analytics:} Quantitative statistical comparison of simulated outputs with historical measurements using goodness-of-fit tests, regression residuals and distribution tests (e.g., Kolmogorov-Smirnov).
-    \item \textbf{Model Docking (Alignment):} Comparing two independent simulation models developed with distinct software architectures calibrated against identical input benchmarks to verify that emergent behaviors are genuine systemic properties rather than software artifacts.
-    \item \textbf{Empirical Validation:} Initializing simulations with historical conditions from time $t_0$ and evaluating predictive accuracy against observed ground truth up to time $t_1$.
-    \item \textbf{Sampling Techniques:} Parameter space exploration via Latin Hypercube Sampling (LHS) and Monte Carlo sweeps to evaluate stability and identify sensitivity thresholds across high-dimensional parameter spaces.
-    \item \textbf{Visualization:} Graphical displays to detect anomalies in emergent spatial distributions and temporal trajectory patterns.
+    \item \textbf{Data Analytics:} Statistical comparison of simulated outputs with historical measurements using goodness-of-fit tests, regression residuals and distribution tests.
+    \item \textbf{Model Docking (Alignment):} Comparing two independent simulation implementations calibrated against identical inputs to verify emergent behaviors are genuine systemic features rather than software artifacts.
+    \item \textbf{Empirical Validation:} Initializing simulations with historical conditions ($t_0$) and testing predictive accuracy against observed data up to $t_1$.
+    \item \textbf{Sampling Techniques:} Latin Hypercube Sampling (LHS) and Monte Carlo sweeps to evaluate stability across high-dimensional parameter spaces.
+    \item \textbf{Visualization:} Graphical displays to detect anomalies in emergent spatial and temporal patterns.
 \end{enumerate}
 
 \section{Advanced Analytical Validation Methods}
 \label{sec:advanced_val}
 
-Advanced validation frameworks incorporate analytical methods to address noisy or limited data:
+Advanced validation frameworks incorporate:
 \begin{itemize}
-    \item \textbf{Bootstrapping:} Non-parametric resampling of model output data to establish empirical confidence intervals and evaluate robustness without restrictive distributional assumptions.
-    \item \textbf{Causal Analysis:} Directed Acyclic Graphs (DAGs) and counterfactual intervention testing to differentiate genuine causal mechanisms from spurious statistical correlations.
-    \item \textbf{Inverse Generative Social Science (IGSS):} Using genetic programming and evolutionary search algorithms to explore potential agent behavioral rules, backtracking from macro-patterns to discover the minimal micro-mechanisms capable of generating target social phenomena.
-    \item \textbf{Spatial Analytics:} Spatial statistics, such as Moran's $I$ and point pattern spatial analysis, to validate simulated geographic distributions against empirical GIS datasets.
+    \item \textbf{Bootstrapping:} Non-parametric resampling to establish parameter confidence intervals without restrictive distribution assumptions.
+    \item \textbf{Causal Analysis:} Directed Acyclic Graphs (DAGs) and counterfactual intervention testing to differentiate genuine causal mechanisms from statistical correlations.
+    \item \textbf{Inverse Generative Social Science (IGSS):} Using genetic programming to search the space of executable agent rules that generate target macroscopic phenomena.
+    \item \textbf{Spatial Analytics:} Moran's $I$ and spatial point pattern statistics to validate simulated spatial distributions against empirical GIS data.
 \end{itemize}
-
-In urban traffic simulations, these methods operate cohesively: empirical validation verifies traffic counts against road sensors, visualization monitors queue formation, sampling tests sensitivity to driver reaction times, and causal analysis isolates the structural root causes of congestion bottlenecks.
 
 \section{Empirical and Face Validation Dimensions}
 \label{sec:empirical_face}
 
-In social simulations where quantitative ground truth is sparse, researchers rely on \textbf{Face Validation} to assess behavioral credibility based on expert domain knowledge~\cite{adornetto2025generative}:
+In social simulations where quantitative data is noisy, researchers rely on \textbf{Face Validation} to assess behavioral credibility:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Microface Validation:} Evaluates individual agent actions and internal decision logic against established psychological, cognitive and behavioral theories.
-    \item \textbf{Macroface Validation:} Assesses whether aggregate population distributions and emergent systemic patterns correspond to real-world social phenomena.
-    \item \textbf{Face Validation Methodologies:} As formalized by Kl{\"u}gl, face validation incorporates three distinct assessment elements:
-    \begin{itemize}
-        \item \textit{Animation Assessment:} Experts review real-time simulation animations to ensure pedestrian flows, vehicle queues and localized interactions appear realistic.
-        \item \textit{Output Assessment:} Human experts evaluate simulation outputs for plausibility. This process can be automated when input-output relationships are formally defined via constraints and rules.
-        \item \textit{Immersive Assessment:} Validators immerse themselves within the simulation by adopting the perspective of an individual agent (potentially via Virtual Reality interfaces) to evaluate behavioral plausibility, emotional responses and interpersonal dynamics firsthand when empirical data is unavailable.
-    \end{itemize}
+    \item \textbf{Microface Validation:} Evaluates individual agent choices against established psychological and behavioral theories.
+    \item \textbf{Macroface Validation:} Assesses whether aggregate population distributions exhibit realistic macroscopic structures.
+    \item \textbf{Face Validation Methods:} Includes Animation Assessment (visual tracking of agent behavior), Output Assessment (expert plausibility audits) and Immersive Assessment (validators impersonate agents via interactive interfaces or virtual reality to evaluate emotional dynamics firsthand).
 \end{enumerate}
+
+%=========================================================
+% CHAPTER 6: GABMS VALIDATION
+%=========================================================
 
 \chapter{GABMS VALIDATION}
 \label{chap:gabms_validation}
@@ -927,9 +914,9 @@ In social simulations where quantitative ground truth is sparse, researchers rel
 
 The integration of LLMs introduces the \textbf{Fundamental Validation Dilemma}. While traditional ABMs are transparent white-box systems with deterministic state transitions, Generative Agents rely on foundation models that function as probabilistic black boxes:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Stochastic Non-Determinism:} Temperature decoding and probabilistic sampling generate divergent paths from identical starting seeds, invalidating deterministic unit tests.
-    \item \textbf{Opaque Internal Reasoning:} Internal states are distributed across billions of continuous parameters without explicit algebraic transition equations.
-    \item \textbf{High-Dimensional Output Spaces:} Agent actions include unconstrained natural language dialogues requiring qualitative evaluation of semantic coherence, emotional nuance and truthfulness.
+    \item \textbf{Stochastic Non-Determinism:} Temperature-based decoding generates divergent paths from identical starting seeds, invalidating deterministic replication.
+    \item \textbf{Opaque Internal Reasoning:} Internal states are distributed across billions of parameters without explicit algebraic transition equations.
+    \item \textbf{High-Dimensional Output Spaces:} Agent actions include unconstrained natural language requiring evaluation of semantic coherence, emotional nuance and truthfulness.
 \end{enumerate}
 
 \section{GABM Validation Workflows}
@@ -946,28 +933,28 @@ Figure~\ref{fig:fig3_validation_workflows} illustrates the integrated validation
 
 The framework operates across three distinct pathways:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Empirical Pathway:} Uses micro-level data (census, demographics) to condition baseline parameters and macro-level data (traffic counts, voting outcomes) to evaluate aggregate simulation trajectories statistically.
-    \item \textbf{Macroface Pathway:} Validates collective emergent phenomena (social network topologies, norm adoption rates, spatial clustering) that arise spontaneously without centralized coordination.
+    \item \textbf{Empirical Pathway:} Uses micro-level data (census, demographics) to condition baseline parameters and macro-level data (voting outcomes, traffic indices) to evaluate aggregate simulation trajectories statistically.
+    \item \textbf{Macroface Pathway:} Validates collective emergent phenomena (social network topologies, norm adoption, spatial clustering) arising without centralized control.
     \item \textbf{Microface Pathway:} Assesses individual agent plausibility via structured interviews, ablation testing and automated dialogue audits.
 \end{enumerate}
 
 \section{Validating Existing Generative Agent Implementations}
 \label{sec:human_eval_studies}
 
-Validation methodologies across existing GABM platforms combine human and automated protocols:
-\begin{itemize}
-    \item \textbf{Smallville Evaluation Protocols:} In the \textit{Ablation Study}, 100 human evaluators scored agent responses across self-knowledge, memory retrieval, planning consistency, reaction plausibility and reflection depth, confirming the full architecture achieves superior believability over ablated baselines. In the \textit{End-to-End Evaluation}, a two-day simulation tracked information diffusion regarding a Valentine's Day party and mayoral candidacy, measuring social network density over time and agent party attendance.
-    \item \textbf{Concordia Validation Framework:} Formulates the \textit{Similarity Principle}, asserting that testing one prediction provides confidence in related predictions within a behavioral family. Emphasizes direct measurement on held-out test data as the gold standard, alongside \textit{Algorithmic Fidelity} to condition agents on socio-demographic backstories for hard-to-reach populations.
-    \item \textbf{S3 Platform Empirical Validation:} Validates online social network simulations against empirical event traces across information dissemination curves, three-tier emotional dynamics (calm, moderate, intense) and interactive behaviors (forward, create, inactive) evaluated via Accuracy, AUC and F1-score.
-    \item \textbf{SOTOPIA-EVAL Benchmark:} Evaluates goal-driven interactions across seven dimensions: Goal Completion, Believability, Knowledge Gained, Secret Keeping, Relationship Dynamics, Social Norms and Financial Benefit. Dual human and GPT-4 evaluations reveal high agreement on objective metrics, but show limitations in evaluating subtle social norms and secret-keeping.
-\end{itemize}
+In Smallville~\cite{park2023generative}, 100 evaluators interviewed agents across five categories: self-knowledge, memory retrieval, planning consistency, reaction plausibility and reflection depth. Ablation experiments demonstrated that removing memory causes repetitive behaviors, removing reflection hinders abstract reasoning and removing planning induces erratic actions; the full architecture achieved statistically superior believability.
+
+In SOTOPIA~\cite{sotopia2024}, the SOTOPIA-EVAL benchmark evaluates goal-driven social interactions across seven dimensions: Goal Completion, Believability, Knowledge Gained, Secret Keeping, Relationship Dynamics, Social Norm Adherence and Financial Benefit.
 
 \section{Automated Validation: LLM-as-a-Judge and Algorithmic Fidelity}
 \label{sec:llm_as_judge}
 
-To address human evaluation expense, researchers utilize \textbf{LLM-as-a-Judge}~\cite{zheng2023judging}, prompting foundation models to score multi-agent interactions across structured rubrics. While automated judges offer scalability, they exhibit nuance blindness regarding sarcasm, passive aggression and deception, alongside an evaluator self-preference bias toward models from their own architectural family.
+To overcome the cost of human evaluation, researchers employ \textbf{LLM-as-a-Judge}~\cite{zheng2023judging}, prompting models like GPT-4 to grade multi-agent dialogues. Dual-evaluation studies indicate high correlation on objective metrics (Goal Completion, Financial Benefit), but limitations in detecting subtle social nuance, sarcasm and strategic deception.
 
-Consequently, the base paper emphasizes \textbf{Algorithmic Fidelity}~\cite{argyle2023out}. Before deploying LLMs as simulation agents or evaluators, researchers must benchmark baseline persona profiles against validated sociological surveys~\cite{serapio2023personality} to detect and mitigate systemic cultural, political and demographic biases.
+Consequently, the base paper emphasizes \textbf{Algorithmic Fidelity}~\cite{argyle2023out} and the \textbf{Similarity Principle}. Before deploying LLMs as simulation agents or evaluators, researchers must benchmark their baseline responses against validated sociological surveys~\cite{serapio2023personality} to detect and mitigate systemic cultural biases.
+
+%=========================================================
+% CHAPTER 7: ABM VS GABM: A COMPARISON
+%=========================================================
 
 \chapter{ABM VS GABM: A COMPARISON}
 \label{chap:abm_vs_gabm}
@@ -1066,44 +1053,47 @@ The core conclusion of the comparative analysis in the base paper is that tradit
 
 Hallucinations undermine GABM validity across two primary modes:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Factuality Hallucinations:} Generating assertions that contradict objective environmental ground truth, such as asserting a bridge crosses an uncrossable river, navigating impassable obstacles or fabricating physical objects that do not exist within the simulation state space. Unlike generic NLP where hallucinations merely produce inaccurate text, in an ABM hallucinated physical actions propagate through the environmental feedback loop, permanently corrupting spatial consistency.
-    \item \textbf{Faithfulness Hallucinations:} Violating assigned persona constraints, moral values or historical context, such as an assigned pacifist initiating unprovoked violent conflict or a historical persona using contemporary technical jargon. In social simulations, faithfulness errors invalidate persona conditioning and destroy demographic representativeness.
+    \item \textbf{Factuality Hallucinations:} Generating assertions that contradict environmental ground truth (e.g., asserting a bridge exists across an uncrossable river).
+    \item \textbf{Faithfulness Hallucinations:} Violating assigned persona constraints, moral values or historical context (e.g., a pacifist initiating unprovoked violence).
 \end{enumerate}
 
-Mitigation strategies operate across three systematic stages:
+Mitigation strategies operate across three stages:
 \begin{itemize}
-    \item \textbf{Data Stage:} Grounding prompts via Retrieval-Augmented Generation (RAG) using verified real-time simulation facts and environment state logs to anchor agent context.
-    \item \textbf{Training Stage:} Applying sensitive neuron dropout, domain-specific instruction tuning and RLHF to enforce persona consistency and penalize behavioral drift.
-    \item \textbf{Inference Stage:} Enforcing formal grammar constraints (e.g., JSON schema, context-free grammars) and deploying peer verification protocols where secondary agents audit and cross-verify behavioral outputs.
+    \item \textbf{Data Stage:} Grounding prompts via Retrieval-Augmented Generation (RAG) using verified real-time simulation facts.
+    \item \textbf{Training Stage:} Applying sensitive neuron dropout and RLHF to enforce persona consistency and penalize behavioral drift.
+    \item \textbf{Inference Stage:} Enforcing formal grammar constraints (e.g., JSON schema) and deploying peer verification protocols where secondary agents audit outputs.
 \end{itemize}
 
 \section{Challenge 2: Validation Bottlenecks and Nuance Detection}
 \label{sec:val_bottlenecks}
 
-Automated LLM judges exhibit critical limitations that impede robust evaluation:
+Automated LLM judges exhibit critical limitations:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Nuance Blindness:} Evaluators struggle with passive aggression, sarcasm, humor and strategic deception, showing systematic bias toward artificially polite or sycophantic agents.
-    \item \textbf{Evaluator Self-Preference Bias:} Foundation models consistently assign higher scores to responses generated by models belonging to their own architectural family, creating circular evaluation loops.
-    \item \textbf{Lack of Standardized Benchmarks:} Absence of standardized multi-agent simulation benchmarks and open datasets prevents rigorous cross-study comparability and reproducibility.
+    \item \textbf{Nuance Blindness:} Evaluators struggle with passive aggression, sarcasm and strategic deception, showing bias toward artificially polite agents.
+    \item \textbf{Evaluator Self-Preference Bias:} Foundation models favor text produced by models of their own architectural family.
+    \item \textbf{Lack of Standardized Benchmarks:} Absence of standardized multi-agent benchmarks prevents rigorous cross-study comparisons.
 \end{enumerate}
 
 \section{Challenge 3: Computational Overhead and Scaling Bottlenecks}
 \label{sec:comp_bottlenecks}
 
-Scaling constraints arise across three interrelated computational bottlenecks:
+Scaling constraints arise across three bottlenecks:
 \begin{enumerate}[label=\arabic*.]
     \item \textbf{Quadratic Self-Attention Overhead:} Computational complexity scales quadratically with prompt token length $n$~\cite{vaswani2017attention}:
     \begin{equation}
     \text{Complexity}_{\text{Attention}} = \mathcal{O}(n^2 \cdot d)
     \end{equation}
-    where $d$ is embedding dimension. As simulation history expands, memory streams lengthen prompts, escalating GPU memory bandwidth demands and inference latency.
+    where $d$ is embedding dimension. Expanding memory streams escalate inference latency.
     \item \textbf{Pairwise Communication Scaling:} In a network of $N$ interacting agents, potential dialogue channels scale quadratically:
     \begin{equation}
     \text{Complexity}_{\text{Communication}} = \mathcal{O}(N^2)
     \end{equation}
-    requiring substantial inference calls per simulation tick in decentralized communication networks.
-    \item \textbf{Memory Retrieval Indexing:} Vector search across $M$ records introduces indexing complexity $\mathcal{O}(\log M)$ to $\mathcal{O}(M)$ per agent per tick, accompanied by substantial commercial API financial costs during extended simulation runs.
+    \item \textbf{Memory Retrieval Indexing:} Vector search across $M$ records introduces indexing complexity $\mathcal{O}(\log M)$ to $\mathcal{O}(M)$ per agent per tick.
 \end{enumerate}
+
+%=========================================================
+% CHAPTER 9: DISCUSSION
+%=========================================================
 
 \chapter{DISCUSSION}
 \label{chap:discussion}
@@ -1111,7 +1101,7 @@ Scaling constraints arise across three interrelated computational bottlenecks:
 \section{Addressing Broader Epistemological Questions}
 \label{sec:epist_questions}
 
-The base research paper examines foundational epistemological questions driving social simulation:
+The base research paper examines five fundamental questions driving social simulation:
 \begin{enumerate}[label=\arabic*.]
     \item \textbf{Macroscopic Pattern Emergence:} How macro-patterns emerge from micro-interactions with diverse, personality-driven agents.
     \item \textbf{Information and Innovation Diffusion:} How ideas spread dynamically through curious, skeptical and communicative agents.
@@ -1120,15 +1110,13 @@ The base research paper examines foundational epistemological questions driving 
     \item \textbf{Linguistic and Framing Biases:} How natural language framing influences social deliberation and consensus formation.
 \end{enumerate}
 
-The base paper addresses Epstein's classic epistemological challenge: does generating a social pattern with an opaque neural network constitute a scientific explanation? Explanatory power is established through mechanistic interpretability and prompt perturbation testing, verifying which persona attributes or normative beliefs were necessary and sufficient to drive emergent outcomes. Furthermore, GABMs capture subjective human experiences: in traffic simulations, route choices are driven by emotional triggers (avoiding fear-inducing routes or choosing scenic paths) rather than pure shortest-path heuristics. In data-sparse domains, such as disaster emergency scenarios or informal settlements, GABMs facilitate rich qualitative analyses of social dynamics where sensor infrastructure is unavailable.
-
 \section{Cities: A Natural Testbed for GABMs}
 \label{sec:cities_testbed}
 
 Urban environments provide an ideal deployment testbed:
 \begin{itemize}
-    \item \textbf{Textual Alignment:} Urban regulations, historical archives, transportation policies and census data align closely with LLM training corpora, providing rich baseline representations.
-    \item \textbf{Qualitative Experience Mapping (QEM):} Traditional models (such as MATSim~\cite{matsim2016}) simulate physical trajectories. GABMs enable tracking subjective experiences: safety perceptions in unlit corridors, park aesthetic appreciation and transit stress, informing human-centric urban design and responsive policy-making.
+    \item \textbf{Textual Alignment:} Urban regulations, historical archives and census data align with LLM training corpora, providing rich baseline representations.
+    \item \textbf{Qualitative Experience Mapping (QEM):} Traditional models (such as MATSim~\cite{matsim2016}) simulate physical trajectories. GABMs enable tracking subjective experiences: safety perceptions in unlit alleys, park aesthetic appreciation and transit stress, informing human-centric urban design.
 \end{itemize}
 
 \section{The Proposed Paradigm: Combined Hybrid ABM-GABM Architecture}
@@ -1136,12 +1124,21 @@ Urban environments provide an ideal deployment testbed:
 
 To overcome computational bottlenecks while preserving behavioral realism, the base paper proposes an integrated \textbf{Hybrid ABM-GABM Architecture}:
 \begin{enumerate}[label=\arabic*.]
-    \item \textbf{Mechanistic Layer (Traditional ABM):} High-frequency, deterministic processes (kinematics, collision avoidance, obstacle navigation, shortest-path routing) execute at $\mathcal{O}(1)$ or $\mathcal{O}(N)$ without invoking LLMs.
+    \item \textbf{Mechanistic Layer (Traditional ABM):} High-frequency, deterministic processes (kinematics, collision avoidance, shortest-path routing) execute at $\mathcal{O}(1)$ or $\mathcal{O}(N)$ without invoking LLMs.
     \item \textbf{Cognitive Layer (Generative Agents):} Foundation model inference is invoked selectively only for complex deliberations, ethical dilemmas and social dialogue.
 \end{enumerate}
 
 \subsection{Case Study: Building Fire Evacuation}
-In an emergency building fire evacuation, the mechanistic layer computes toxic smoke dispersion and obstacle navigation via cellular automata, while the generative cognitive layer evaluates moral dilemmas, such as deciding whether to re-enter a hazard area to rescue a trapped colleague versus immediate egress. In urban land-use simulations, hybrid validation couples sensor data analytics for crowd density with agent interviews to examine why individuals alter travel modes or avoid overcrowded transit hubs.
+In an emergency building fire evacuation:
+\begin{itemize}
+    \item The traditional layer computes toxic smoke dispersion and pedestrian stairwell routing via cellular automata.
+    \item The generative layer evaluates moral dilemmas (e.g., deciding whether to re-enter a burning floor to assist a trapped colleague versus immediate evacuation).
+    \item Sensor data analytics validate evacuation clearance durations, while post-evacuation agent interviews validate psychological panic and altruistic behaviors.
+\end{itemize}
+
+%=========================================================
+% CHAPTER 10: CONCLUSION
+%=========================================================
 
 \chapter{CONCLUSION}
 \label{chap:conclusion}

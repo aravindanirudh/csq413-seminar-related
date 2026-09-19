@@ -1,6 +1,6 @@
 # CSQ413 Seminar: Comprehensive Project Context and Continuation Guide
 
-This document provides complete project context, metadata, structural breakdowns, academic constraints, and compilation instructions for the CSQ413 B.Tech Seminar. It enables seamless continuation in a new conversation session.
+This document provides complete project context, metadata, structural breakdowns, academic constraints and compilation instructions for the CSQ413 B.Tech Seminar. It enables seamless continuation in a new conversation session.
 
 ---
 
@@ -22,7 +22,7 @@ This document provides complete project context, metadata, structural breakdowns
 
 ## 2. Base Research Paper Details
 
-- **Title:** Generative Agents in Agent-Based Modeling: Overview, Validation, and Emerging Challenges
+- **Title:** Generative Agents in Agent-Based Modeling: Overview, Validation and Emerging Challenges
 - **Authors:** Carlo Adornetto, Adrian Mora, Kai Hu, Leticia Izquierdo Garcia, Parfait Atchade-Adelomou, Gianluigi Greco, Luis Alberto Alonso Pastor, Kent Larson
 - **Journal:** IEEE Transactions on Artificial Intelligence, Vol. 6, No. 12, pp. 3165-3184, December 2025
 - **Publisher:** IEEE
@@ -31,14 +31,14 @@ This document provides complete project context, metadata, structural breakdowns
 
 ---
 
-## 3. Strict Rules, Formatting, and Style Constraints
+## 3. Strict Rules, Formatting and Style Constraints
 
-1. **Punctuation Constraint:** Never use em dashes ('---' or unicode '-') or en dashes ('--' or unicode '-'). Always use only standard single '-' hyphens across both LaTeX source files and documentation.
-2. **Academic Tone:** Strictly non-opinionated, factual, and academically rigorous. All statements, analyses, comparisons, and conclusions are completely grounded in what is established in the base research paper.
+1. **Punctuation Constraint:** Never use Oxford commas (' and' or ' or'); always use ' and' and ' or'. Never use em dashes ('---' or unicode '-') or en dashes ('--' or unicode '-'). Always use only standard single '-' hyphens across both LaTeX source files and documentation.
+2. **Academic Tone:** Strictly non-opinionated, factual and academically rigorous. All statements, analyses, comparisons and conclusions are completely grounded in what is established in the base research paper.
 3. **Seminar Report Headings:** Headings in the seminar report MUST match the exact section headings of the base research paper:
    - Preliminary front matter and References are unnumbered.
-   - Main chapters are numbered using Roman numerals matching the base paper (`Chapter I: INTRODUCTION` through `Chapter X: CONCLUSION`).
-4. **Report Page Budget:** Strictly **30-35 pages**. The report code in `Aravind_Seminar_Report/main.tex` is calibrated at ~59 KB (1,061 lines), estimating ~32-34 compiled PDF pages.
+   - Main chapters are numbered using Arabic numerals (`Chapter 1: INTRODUCTION` through `Chapter 10: CONCLUSION`) and subheadings as `1.1, 1.2...` as per faculty requirements.
+4. **Report Page Budget:** Calibrated for **~30 content pages** (~47,000 characters of chapter text, 1,296 total lines, ~75 KB source), yielding ~29-30 content pages and ~38-39 pages total including front matter and references.
 5. **Image Handling:** All images must reside inside the `figures/` subfolder. In LaTeX, `\graphicspath{{./}{./figures/}}` is used so that files resolve cleanly. Image dimensions are properly bounded using `keepaspectratio` and `\textwidth` scaling to prevent page overflow.
 
 ---
@@ -65,7 +65,7 @@ Seminar Related GitHub Repo/
 │   ├── fig3_gabm_validation_workflows.png                     (Figure 3 from base paper)
 │   └── README.md                                              (Presentation build guide)
 ├── Aravind_Seminar_Report/                                    (Active Report Directory)
-│   ├── main.tex                                               (Complete 30-35 page KTU report source)
+│   ├── main.tex                                               (Complete KTU report source, ~30 content pages)
 │   └── figures/                                               (Image assets for report)
 │       ├── fig1_ai_in_abm.png                                 (Figure 1: AI in ABM development)
 │       ├── fig2_ga_feedback_loop_status.png                   (Figure 2: GA feedback loop and status)
@@ -81,31 +81,31 @@ Seminar Related GitHub Repo/
 
 ## 5. Seminar Technical Report Architecture (`Aravind_Seminar_Report/main.tex`)
 
-The report is written with `\documentclass[12pt,a4paper]{report}`, Times font (`newtxtext`, `newtxmath`), 1.5 line spacing, and 1.3-inch left / 1-inch right/top/bottom margins as per KTU thesis format.
+The report is written with `\documentclass[12pt,a4paper]{report}`, Times font (`newtxtext`, `newtxmath`), 1.5 line spacing and 1.3-inch left / 1-inch right/top/bottom margins as per KTU thesis format.
 
-### Detailed Page Breakdown (Target: 30-35 Pages)
+### Detailed Page Breakdown (Target: ~30 Content Pages, ~38-39 Total Pages)
 
 | Section / Chapter | Title / Topic | Elements Included | Estimated Pages |
 | :--- | :--- | :--- | :---: |
 | **Front Matter** | Cover Page | Title, Student, Guide, Dept, Logo, College details | 1 |
 | **Front Matter** | Second Title Page | KTU B.Tech degree submission metadata | 1 |
-| **Front Matter** | Certificate | Guide, Co-ordinator, HoD signatories | 1 |
-| **Front Matter** | Acknowledgement | Thanks to Principal, HoD, Coordinators, Guide, Friends | 1 |
+| **Front Matter** | Certificate | Guide, Co-ordinator, HoD signatories (spaced layout) | 1 |
+| **Front Matter** | Acknowledgement | Full coordinator designations and guide acknowledgement | 1 |
 | **Front Matter** | Abstract | Strictly 1 single page (condensed to ~1,900 chars) | 1 |
-| **Front Matter** | Table of Contents | `\tableofcontents` (two pages vi-vii) | 2 |
-| **Front Matter** | List of Figures & Tables | `\listoffigures` (viii) and `\listoftables` (ix) | 2 |
-| **Chapter I** | INTRODUCTION | ABM definition, bounded rationality, homo economicus, GenAI | 2.5 |
-| **Chapter II** | ABMS AND GENERATIVE ABMS | Epstein generative social science vs GenAI, **Table I (Traffic)** | 2.5 |
-| **Chapter III** | EVOLVING AGENTS | EAs, RL, Structural Specification & Output Analysis, **Figure 1** | 2.5 |
-| **Chapter IV** | GENERATIVE AGENTS | Parameters vs Status, **Figure 2**, Memory scoring formula, Reflection tree, Planning, **Table II (GABMs)** | 3.5 |
-| **Chapter V** | INFORMAL THEORY OF ABMS VALIDATION | Verification vs Validation, Data analytics, Docking, Bootstrapping, Causal DAGs, IGSS, Face validation | 2.0 |
-| **Chapter VI** | GABMS VALIDATION | Black-box dilemma, **Figure 3**, Smallville ablation, SOTOPIA-EVAL, LLM-as-a-Judge, Algorithmic fidelity | 2.5 |
-| **Chapter VII** | ABM VS GABM: A COMPARISON | Systematic comparative analysis across Resources, Design, Behavior, Validation, **Table III** | 2.5 |
-| **Chapter VIII** | GABMS: EMERGING CHALLENGES | Factuality/faithfulness hallucinations, attention complexity $\mathcal{O}(n^2 \cdot d)$, communication scaling $\mathcal{O}(N^2)$ | 2.0 |
-| **Chapter IX** | DISCUSSION | Epistemological validity, Cities as testbeds, Qualitative Experience Mapping, Hybrid ABM-GABM, Fire evacuation case study | 2.0 |
-| **Chapter X** | CONCLUSION | Four core pillars of GABM, future research trajectories | 1.5 |
-| **References** | References | 20 peer-reviewed IEEE citations matching base paper | 1.5 - 2.0 |
-| **Total** | **Complete Document** | **Front matter (9) + Chapters (21) + References (2)** | **~32-34 Pages** |
+| **Front Matter** | Table of Contents | Manually formatted (title font editable, no Abstract/LOF/LOT) | 1.5 - 2 |
+| **Front Matter** | List of Figures & Tables | Manually formatted (`LIST OF FIGURES`, `LIST OF TABLES`) | 2 |
+| **Chapter 1** | INTRODUCTION | ABM definition, bounded rationality, homo economicus, GenAI | 2.5 |
+| **Chapter 2** | ABMS AND GENERATIVE ABMS | Epstein generative social science vs GenAI, **Table 1 (Traffic)** | 3.0 |
+| **Chapter 3** | EVOLVING AGENTS | EAs, RL, Structural Specification & Output Analysis, **Figure 1** | 3.0 |
+| **Chapter 4** | GENERATIVE AGENTS | Parameters vs Status, **Figure 2**, Memory scoring formula, Reflection tree, Planning, **Table 2 (GABMs)** | 4.5 |
+| **Chapter 5** | INFORMAL THEORY OF ABMS VALIDATION | Verification vs Validation, Data analytics, Docking, Bootstrapping, Causal DAGs, IGSS, Face validation | 2.5 |
+| **Chapter 6** | GABMS VALIDATION | Black-box dilemma, **Figure 3**, Smallville ablation, SOTOPIA-EVAL, LLM-as-a-Judge, Algorithmic fidelity | 3.5 |
+| **Chapter 7** | ABM VS GABM: A COMPARISON | Systematic comparative analysis across Resources, Design, Behavior, Validation, **Table 3** | 3.0 |
+| **Chapter 8** | GABMS: EMERGING CHALLENGES | Factuality/faithfulness hallucinations, attention complexity $\mathcal{O}(n^2 \cdot d)$, communication scaling $\mathcal{O}(N^2)$ | 2.5 |
+| **Chapter 9** | DISCUSSION | Epistemological validity, Cities as testbeds, Qualitative Experience Mapping, Hybrid ABM-GABM, Fire evacuation case study | 2.5 |
+| **Chapter 10** | CONCLUSION | Summary & Future Trajectories (Strictly formatted as paragraphs, no bullet points) | 2.0 |
+| **References** | References | 20 peer-reviewed IEEE citations matching base paper | 2.0 |
+| **Total** | **Complete Document** | **Front matter (9) + Content Chapters (28-29) + References (2)** | **~39-40 Pages** |
 
 ---
 
@@ -133,17 +133,17 @@ The report is written with `\documentclass[12pt,a4paper]{report}`, Times font (`
 ## 7. Comparative Tables Encapsulated in the Report
 
 - **Table I: Comparison between Traditional ABM and Generative ABM (Urban Traffic Flow Scenario):**
-  - Contrasts Objective, Outcomes & Generalization, and Decision Basis.
+  - Contrasts Objective, Outcomes & Generalization and Decision Basis.
 - **Table II: Comparison of Existing GABMs:**
-  - Evaluates SOTOPIA (2024), CRSEC Norm Emergence (2024), Concordia (2023), Smallville (2023), and S3 Platform (2023).
+  - Evaluates SOTOPIA (2024), CRSEC Norm Emergence (2024), Concordia (2023), Smallville (2023), S3 Platform (2023) and Epidemic GAs (2023).
 - **Table III: Systematic Comparison Between ABM and GABM:**
-  - Compares Rule-based, EA-based, RL-based, and GABM across 17 distinct attributes spanning Resources, Agent Design, Agent Behavior, and Validation.
+  - Compares Rule-based, EA-based, RL-based and GABM across 17 distinct attributes spanning Resources, Agent Design, Agent Behavior and Validation.
 
 ---
 
 ## 8. Presentation Slide Deck Overview (`Aravind_Seminar_Presentation/main.tex`)
 
-The presentation deck uses `\documentclass{beamer}` with `\usetheme{Madrid}`, custom color definitions (`themeblue`, `lightgray`, `advgreen`, `limred`), and date restricted to the footer. Total: 32 slides.
+The presentation deck uses `\documentclass{beamer}` with `\usetheme{Madrid}`, custom color definitions (`themeblue`, `lightgray`, `advgreen`, `limred`) and date restricted to the footer. Total: 32 slides.
 
 - Slide 1: Title Slide (Student, Roll No, Guide, Dept affiliation)
 - Slide 2: Presentation Outline (9 agenda sections)
@@ -194,12 +194,12 @@ The presentation deck uses `\documentclass{beamer}` with `\usetheme{Madrid}`, cu
   pdflatex main.tex
   pdflatex main.tex
   ```
-  *(Running twice ensures Table of Contents, List of Figures, List of Tables, and cross-references resolve properly).*
+  *(Running twice ensures Table of Contents, List of Figures, List of Tables and cross-references resolve properly).*
 
 ### Compiling the Presentation Slide Deck (`Aravind_Seminar_Presentation`)
 - **Option A (Overleaf):**
   1. Compress `Aravind_Seminar_Presentation/` into a `.zip` archive.
-  2. Upload to Overleaf, set compiler to **pdfLaTeX**, and click **Recompile**.
+  2. Upload to Overleaf, set compiler to **pdfLaTeX** and click **Recompile**.
 - **Option B (Local Terminal):**
   ```powershell
   cd "Aravind_Seminar_Presentation"
@@ -212,7 +212,7 @@ The presentation deck uses `\documentclass{beamer}` with `\usetheme{Madrid}`, cu
 ## 10. Key Items for Next Conversation / Future Tasks
 
 When continuing in a new conversation, the following tasks can be directly initiated:
-1. **Report Re-Verification:** If university feedback requires specific tweaks to margins, font sizes, or chapter subsections, edit `Aravind_Seminar_Report/main.tex`.
+1. **Report Re-Verification:** If university feedback requires specific tweaks to margins, font sizes or chapter subsections, edit `Aravind_Seminar_Report/main.tex`.
 2. **Presentation Speaker Notes:** Generate slide-by-slide verbal speaker notes aligned with the 32 slides for a 20-minute seminar delivery.
-3. **Seminar Defense / Viva Preparation:** Generate expected faculty questions, cross-examination points on black-box validation, and defensive answers grounded in the base paper.
+3. **Seminar Defense / Viva Preparation:** Generate expected faculty questions, cross-examination points on black-box validation and defensive answers grounded in the base paper.
 4. **Seminar Diary Entries:** Draft weekly progress log entries required for the 10 marks awarded by the Seminar Coordinator under KTU CSQ413 regulations.
